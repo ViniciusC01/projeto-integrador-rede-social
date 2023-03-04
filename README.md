@@ -45,3 +45,9 @@
 - `RF-014`	Abrir um nova conversa:	o usuário poderá iniciar um novo chat
 
 - `RF-015`	Enviar mensagem:	o usuário poderá enviar e receber mensagens pelo chat
+
+<hr>
+
+## :pencil: Protótipo
+
+- `Figma` https://www.figma.com/file/HrgD9hKKwYOOyywwUWo0Vg/Untitled?node-id=2%3A5&t=p1XkAMLX9OV2t0n6-1 
