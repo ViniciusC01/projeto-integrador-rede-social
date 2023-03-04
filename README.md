@@ -50,4 +50,4 @@
 
 ## :pencil: Protótipo
 
-- `Figma` https://www.figma.com/file/HrgD9hKKwYOOyywwUWo0Vg/Untitled?node-id=2%3A5&t=p1XkAMLX9OV2t0n6-1 
+- `Figma` https://www.figma.com/file/HrgD9hKKwYOOyywwUWo0Vg/Untitled?node-id=0%3A1&t=p1XkAMLX9OV2t0n6-1
