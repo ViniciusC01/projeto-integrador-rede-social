@@ -1,7 +1,11 @@
-<h1>⚒️ Lista de funcionalidade do sistema
+<h1>⚒️ Rede social
   <img align="right" src="http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge"/>
 </h1>
 
+# Modelo entidade relacionamento
+![image](https://github.com/ViniciusC01/projeto-integrador-rede-social/blob/dev/src/main/modelo-entidade-relacionamento/modelo_imagem.PNG)
+
+# Lista de funcionalidade do sistema
 ## Usuário
 
 - `RF-001`	Criar usuário:	criação de usuário com informações de pk, pwd e email
