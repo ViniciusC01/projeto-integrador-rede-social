@@ -2,11 +2,10 @@
   <img align="right" src="http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge"/>
 </h1>
 
-# Modelo entidade relacionamento
-![image](https://github.com/ViniciusC01/projeto-integrador-rede-social/blob/dev/src/main/modelo-entidade-relacionamento/modelo_imagem.PNG)
 
-# Lista de funcionalidade do sistema
-## Usuário
+## Lista de funcionalidade do sistema
+
+### Usuário
 
 - `RF-001`	Criar usuário:	criação de usuário com informações de pk, pwd e email
 
@@ -14,9 +13,8 @@
 
 - `RF-003`	Deletar usuário:	deletar usuário
 
-<hr>
 
-## Conta
+### Conta
 
 - `RF-004`	Criar conta:	criação de conta com dados do perfil (nome, idade, localidade, curso etc), considerar foto
 
@@ -24,9 +22,8 @@
 
 - `RF-006`	Deletar conta:	deletar conta
 
-<hr>
 
-## Postagem
+### Postagem
 
 - `RF-007`	Consultar conta:	pesquisar perfis de usuário
 
@@ -42,9 +39,8 @@
 
 - `RF-013`	Listar postagens (feed):	o usuário terá acesso ao feed com postagens de outros usuários vínculados a ele
 
-<hr>
 
-## 🚧 Versão 2.0.0 🚧
+### 🚧 Versão 2.0.0 🚧
 
 - `RF-014`	Abrir um nova conversa:	o usuário poderá iniciar um novo chat
 
@@ -54,4 +50,12 @@
 
 ## :pencil: Protótipo
 
-- `Figma` https://www.figma.com/file/HrgD9hKKwYOOyywwUWo0Vg/Untitled?node-id=0%3A1&t=p1XkAMLX9OV2t0n6-1
+- [`Figma`](https://www.figma.com/file/HrgD9hKKwYOOyywwUWo0Vg/Untitled?node-id=0%3A1&t=p1XkAMLX9OV2t0n6-1)
+
+[![Documentação](src/main/prototipagem/login.PNG)](src/main/prototipagem/)
+
+<hr>
+
+## Modelo entidade relacionamento
+
+[![Documentação](src/main/modelo-entidade-relacionamento/modelo_imagem.PNG)](src/main/modelo-entidade-relacionamento/)
