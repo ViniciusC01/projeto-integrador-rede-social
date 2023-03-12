@@ -52,7 +52,7 @@
 
 - [`Figma`](https://www.figma.com/file/HrgD9hKKwYOOyywwUWo0Vg/Untitled?node-id=0%3A1&t=p1XkAMLX9OV2t0n6-1)
 
-[![Documentação](src/main/prototipagem/login.PNG)](src/main/prototipagem/)
+[![Documentação](src/main/prototipagem/login.png)](src/main/prototipagem/)
 
 <hr>
 

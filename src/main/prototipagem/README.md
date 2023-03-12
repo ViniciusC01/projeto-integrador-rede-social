@@ -1,25 +1,25 @@
-#Prototipagem
+# Prototipagem
 
-###Página de login
+### Página de login
 
-![image](login.PNG)
+![image](login.png)
 
-###Página de cadastro
+### Página de cadastro
 
-![image](cadastro.PNG)
+![image](cadastro.png)
 
-###Página de home
+### Página de home
 
-![image](home.PNG)
+![image](home.png)
 
-###Página do chat
+### Página do chat
 
-![image](chat.PNG)
+![image](chat.png)
 
-###Página do perfil
+### Página do perfil
 
-![image](perfil.PNG)
+![image](perfil.png)
 
-###Página do perfil - publicações
+### Página do perfil - publicações
 
-![image](perfil-publicacoes.PNG)
+![image](perfil-publicacoes.png)
