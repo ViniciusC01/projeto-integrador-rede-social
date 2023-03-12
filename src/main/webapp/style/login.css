@@ -1,0 +1,130 @@
+:root{
+    /* Colors */
+    --white: #FFF;
+    --black: #222;
+    --emphasis: #4B9;
+
+    /* Paddings */
+    --paddingCard: 1rem;
+    --paddingButton: 0.5rem;
+
+    /* BorderRadius */
+    --borderRadiusCard: 1rem;
+    --borderRadiusButton: 2rem;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    text-decoration: none;
+}
+
+header{
+    margin: 2rem;
+    display: flex;
+    background: transparent;
+    position: fixed;
+}
+
+.logo > img{
+    align-items: left;
+    content: "";
+    width: 10rem;
+    height: 5rem;
+}
+
+main{
+    display: flex;
+    height: 95vh;
+    width: 100vw;
+}
+
+.left{
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    width: 50vw;
+    justify-content: center;
+    align-items: center;
+}
+
+.left > h1{
+    margin-top: 5rem;
+    margin-bottom: 2rem;
+}
+.cardLeft{
+    display: flex;
+    flex-direction: column;
+    padding: var(--paddingCard);
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    background: #444;
+    color: var(--white);
+    border-radius: var(--borderRadiusCard);
+}
+
+.cardLeft > button{
+    padding: var(--paddingButton);
+    border-radius: var(--borderRadiusButton);
+    background: var(--emphasis);
+}
+
+.cardLeft > button > a{
+    color: var(--white);
+}
+
+.right{
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    width: 50vw;
+    justify-content: center;
+    align-items: center;
+    background: var(--black);
+}
+
+.cardRight{
+    display: flex;
+    flex-direction: column;
+    padding: var(--paddingCard);
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    background: #FFFFFF10;
+    color: var(--white);
+    border-radius: var(--borderRadiusCard);
+}
+
+.inputs{
+    display: flex;
+    gap: 0.5rem;
+}
+
+.btnLogin{
+    padding: var(--paddingButton);
+    border-radius: var(--borderRadiusButton);
+    color: var(--emphasis);
+    background: var(--white);
+    font-weight: bold;
+}
+
+.cardRight > span > a{
+    color: var(--white);
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5vh;
+    width: 100vw;
+    background: var(--emphasis);
+}
+
+footer > p{
+    font-size: small;
+    font-style: italic;
+    color: var(--white);
+}
