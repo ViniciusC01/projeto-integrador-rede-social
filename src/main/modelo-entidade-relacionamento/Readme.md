@@ -1,12 +1,12 @@
 
-
-
-
-
 <h1> Documentação da modelagem do banco de dados. 
     <img align="right" src="http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge"/>
 
   <h1/>
+ 
+![image](modelo_imagem.PNG)
+
+
  
 
 ### Tabela Usuário 
@@ -19,14 +19,14 @@
 <hr>
   
 ### Usuário has chat 
- - A tebela usuário tem chat, ela tem como Atributos ID usuário, chat_Idchat , usuário_foto_ID_foto.
+ - A tabela usuário tem chat, ela tem como Atributos ID usuário, chat_Idchat , usuário_foto_ID_foto.
     
-- Esta tabela pega as informaçoes das tabelas Usuário e Chat, para criar uma conversa entre o dono do perfil e entre outros usuários
+- Esta tabela pega as informações das tabelas Usuário e Chat, para criar uma conversa entre o dono do perfil e entre outros usuários.
 <hr>
   
 ### Chat 
       
-- A tebela chat, tem os atributos ID chat e conversacol.
+- A tabela chat, tem os atributos ID chat e conversacol.
       
 - Esta tabela  se relaciona entre a tabela Usuário tem chat e a tabela Menssagem e faz o intermédio de conversas entre os usuários da rede social.
 <hr>
@@ -60,11 +60,3 @@
  ### Foto 
 - A tabela Foto recebe os atributos ID foto e  Medium texto.
 -  Esta tabela se relaciona diretamente com a tabela Usuário e esta tabela é sobre as imagens do dono do perfil.
- <hr>
-          
-          
-          
-        
-  
-  
-  
