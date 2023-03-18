@@ -8,6 +8,16 @@ creata table usuario (
     senha varchar (100) not null; 
 );
 
+#create table endereco (
+#    id integer primary; 
+#    cep varchar (10) not null; 
+#    rua varchar (50) not null;
+#    numero integer not null; 
+#    cidade varchar (50) not null;
+#    estado varchar (50) not null;
+#    bairro varchar (50) not null;
+#);
+
 create table conta (
     id integer primary key; 
     cpf varchar (12);
@@ -16,6 +26,29 @@ create table conta (
     instituicao_id integer foreign key;
     curso_id integer foreign key; 
     foto_id integer foreign key; 
+    turma_id integer foreign key; 
+    endereco_id;
+    sobre varchar (200); 
+);
+
+create table turma(
+    id integer primary;
+    id_curso integer foreign key;
+    ano data not null;
+    semestre binary not null;
+    letra char not null;
+);
+
+create table curso(
+    id integer primary key;
+    nome varchar (30) not null;
+    area varchar (30) not null;
+    id_instituicao integer foreign key not null;
+);
+
+create table instituicao(
+    id integer primary key;
+    nome varchar (30) not null;
 );
 
 create table foto (
