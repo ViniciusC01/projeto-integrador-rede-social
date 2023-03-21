@@ -4,28 +4,63 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="./style/register.css">
+
     <title>CAPIVA</title>
 </head>
 <body>
+    <header class="logo">
+        <a href="./login.html">
+            <img src="" alt="">
+        </a>
+    </header>
     <main>
-        <section class="register">
-            <div class="container">
-                <div class="card">
-                    <img src="" alt="">
-                    <h4>Cadastre-se para ver fotos e vídeos dos seus amigos.</h4>
-                    <input type="text" name="username" id="username" class="username" placeholder="Nome de usuário">
-                    <input type="email" name="useremail" id="useremail" class="useremail" placeholder="E-mail">
-                    <input type="password" name="userpassword" id="userpassword" class="userpassword"placeholder="Senha">
-                    <input type="date" name="userbirth" id="userbirth" class="userbirth">
-                    <select name="usergender" id="usergender">
-                        <option value="male">Masculino</option>
-                        <option value="female">Feminino</option>
-                        <option value="other">Outros</option>
-                    </select>
-                    <button type="submit" class="btnRegister">CADASTRAR</button>
+        <div class="cardRegister">
+            <h1>Cadastre-se</h1>
+
+            <form action="">
+                <input type="text" name="firstName" id="firstName" class="field field1" placeholder="Nome">
+
+                <input type="text" name="lastName" id="lastName" class="field field2" placeholder="Sobrenome">
+                
+                <input type="date" name="birth" id="birth" class="field field3">
+
+                <select name="usergender" id="usergender" class="field field4">
+                    <option value="gender" selected disabled>Selecione o gênero</option>
+                    <option value="male">Masculino</option>
+                    <option value="female">Feminino</option>
+                    <option value="other">Outros</option>
+                </select>
+
+                <input type="tel" name="telephone" id="telephone" class="field field5" placeholder="(xx) x xxxx-xxxx">
+
+                <input type="text" name="university" id="university" class="field field6" placeholder="Universidade">
+                
+                <input type="text" name="course" id="course" class="field field7" placeholder="Curso">
+                
+                <select name="shift" id="shift" class="field field8">
+                    <option value="shift" selected disabled>Selecione o turno</option>
+                    <option value="matinal">Matinal</option>
+                    <option value="noturno">Noturno</option>
+                    <option value="integral">Integral</option>
+                </select>
+                
+                <input type="text" name="year" id="year" class="field field9" placeholder="Ano início">
+                
+                <input type="text" name="semester" id="semester" class="field field10" placeholder="Semestre início">
+                
+                <input type="text" name="team" id="team" class="field field11" placeholder="Turma">
+
+                <input type="email" name="email" id="email" class="field field12" placeholder="E-mail">
+                
+                <input type="password" name="password" id="password" class="field field13"placeholder="Senha">
+                <div class="btn">
+                    <button type="submit" class="btnRegister" onclick="register()">CADASTRAR</button>
                 </div>
-            </div>
-        </section>
+            </form>
+        </div>
     </main>
     <footer>
         <p>&copy; CAPIVA. Todos os direitos reservados.</p>
