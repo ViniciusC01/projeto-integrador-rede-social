@@ -6,4 +6,14 @@
     <persistence-unit name="default">
 
     </persistence-unit>
+    <persistence-unit name="my-pu" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>com.example.MyEntity</class>
+        <properties>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/mydatabase"/>
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="javax.persistence.jdbc.user" value="myuser"/>
+            <property name="javax.persistence.jdbc.password" value="mypassword"/>
+        </properties>
+    </persistence-unit>
 </persistence>
