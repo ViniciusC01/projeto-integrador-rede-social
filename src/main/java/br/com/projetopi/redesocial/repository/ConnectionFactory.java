@@ -16,4 +16,13 @@ public class ConnectionFactory {
             throw new RuntimeException("Driver de conexão não encontrado");
         }
     }
+
+    public static Connection getConnectionH2() throws SQLException {
+        try {
+            //Class.forName("com.mysql.jdbc.Driver");
+            return DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
+        } catch (SQLException e) {
+            throw new RuntimeException("Erro ao realizar a conexão");
+        }
+    }
 }
