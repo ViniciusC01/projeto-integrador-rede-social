@@ -1,7 +1,24 @@
-<h1>⚒️ Rede social
+<h1>:computer: Rede social
   <img align="right" src="http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge"/>
 </h1>
 
+## Desenvolvedores
+
+#### FRONT-END:
+
+- [`Matheus Lopes Trindade`](https://github.com/MatheusLTrindade/)
+
+#### BACK-END:
+
+- [`Jhonatan Ribeiro Dos Santos`](https://github.com/jrsantos1/)
+
+- [`Murilo Lima Dos Santos`](https://github.com/Murilolima98/)
+
+- [`Ronald Garcia`](https://github.com/RonaldAG/)
+
+- [`Vinicius Carvalho`](https://github.com/ViniciusC01/)
+
+<hr>
 
 ## Lista de funcionalidade do sistema
 
