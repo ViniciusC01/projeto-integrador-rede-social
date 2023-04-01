@@ -36,7 +36,7 @@ create table curso(
 create table turma(
     id integer primary key AUTO_INCREMENT,
     id_curso integer  not null,
-    ano year not null,
+    data_inicio date not null,
     semestre binary not null,
     letra char not null,
     foreign key (id_curso) references curso(id)
@@ -94,7 +94,7 @@ create table curtida_comentario (
     id integer primary key auto_increment,
     comentario_id integer not null,
     conta_id integer not null,
-    foreign key (comentario_id) references comentario(id),
+    foreign key (comentario_id) references comentario_postagem(id),
     foreign key (conta_id) references conta(id)
 );
 
