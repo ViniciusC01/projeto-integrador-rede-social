@@ -1,15 +1,9 @@
 package br.com.projetopi.redesocial.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-
 import java.util.Objects;
 
-@Entity
-@Table(name = "curso")
 public class Curso {
-    @Id
+
     private Integer id;
     private String nome;
     private String tipo;
