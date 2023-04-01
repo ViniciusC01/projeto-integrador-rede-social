@@ -67,11 +67,10 @@ main{
 }
 
 .cardRegister{
-    height: 80vh;
     display: flex;
     flex-direction: column;
     max-width: 600px;
-    max-height: 450px;
+    min-height: 450px;
     padding: var(--paddingCard);
     justify-content: space-around;
     align-items: center;
@@ -93,6 +92,40 @@ form{
     justify-content: center;
 }
 
+
+.fields{
+    display: flex;
+    position: relative;
+    flex: 1 0 100%;
+}
+.fields span{
+    font-size: 1.1rem;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    visibility: hidden;
+}
+.fields small {
+    position: absolute;
+    bottom: 10px;
+    visibility: hidden;
+}
+
+.fields.success span.success {
+    color: #2ecc71;
+    visibility: visible;
+}
+
+.fields.error span.error {
+    color: #e74c3c;
+    visibility: visible;
+}
+
+/* .fields.error small {
+    color: #e74c3c;
+    visibility: visible;
+} */
+
 .field{
     margin: 0 0.5rem 0.5rem 0;
     padding: 0.5rem 1rem;
@@ -100,33 +133,36 @@ form{
     border-radius: 1rem;
 }
 .field{    
-    flex: 1 0 40%; /*flex magic*/
-    width: 45%;
+    flex: 1 0 50%; /*flex magic*/
+    width: 100;
     float: left;
 }
-
-.field3, .field5{
-    flex: 23%;
+.field1, .field2{
+    flex: 50%;
 }
-
-.field4{
-    flex: 33%;
+.field3, .field4{
+    flex: 25%;
 }
-
+.field5{
+    flex: 10%;
+}
 .field6{
     flex: 100%;
 }
 
-.field8{
-    flex: 30%;
-}
-
-.field9, .field10, .field11{
-    flex: 20%;
-}
-
-.field12, .field13{
+.field7{
     flex: 100%;
+}
+
+.field8, .field9, .field10, .field11{
+    flex: 25%;
+}
+
+.field12{
+    flex: 100%;
+}
+.field13, .field14{
+    flex: 50%;
 }
 
 .btnRegister{
