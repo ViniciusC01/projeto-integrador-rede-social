@@ -41,7 +41,7 @@ id integer primary key AUTO_INCREMENT,
 nome varchar (30) not null);             
 create table curso(
 id integer primary key AUTO_INCREMENT,
-nome varchar (30) not null,
+nome varchar (50) not null,
 tipo varchar (30) not null,
 area varchar (30) not null,
 instituicao_id integer not null,

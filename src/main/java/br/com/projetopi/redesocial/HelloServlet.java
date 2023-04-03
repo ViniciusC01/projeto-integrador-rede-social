@@ -30,9 +30,6 @@ public class HelloServlet extends HttpServlet {
         try(Connection connectionFactory = ConnectionFactory.getConnectionH2();) {
             System.out.println("Conexão ok");
 
-            // TESTANDO A CURSO DAO
-            CursoTest.creatingACourseTest();
-
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

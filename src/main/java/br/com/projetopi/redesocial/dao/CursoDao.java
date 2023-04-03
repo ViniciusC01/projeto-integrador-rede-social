@@ -12,9 +12,8 @@ public class CursoDao {
     private Connection connection;
 
     public CursoDao() {
-
-        try(Connection connection1 = ConnectionFactory.getConnectionH2()){
-            connection = connection1;
+        try{
+            this.connection = ConnectionFactory.getConnectionH2();
         } catch(SQLException e){
            e.printStackTrace();
         }
@@ -22,7 +21,7 @@ public class CursoDao {
     }
 
     public void createCurso(Curso curso) throws SQLException {
-        String sql = "INSERT INTO curso(NOME, TIPO, AREA, INSTITUICAO_ID) VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO curso(NOME, TIPO, AREA, INSTITUICAO_ID) VALUES (?, ?, ?, ?)";
 
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setString(1, curso.getNome());
