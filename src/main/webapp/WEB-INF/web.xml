@@ -3,4 +3,19 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
          version="5.0">
+        <listener>
+            <listener-class>org.h2.server.web.DbStarter</listener-class>
+        </listener>
+
+        <servlet>
+            <servlet-name>H2Console</servlet-name>
+            <servlet-class>org.h2.server.web.WebServlet</servlet-class>
+            <load-on-startup>1</load-on-startup>
+        </servlet>
+
+        <servlet-mapping>
+            <servlet-name>H2Console</servlet-name>
+            <url-pattern>/console/*</url-pattern>
+        </servlet-mapping>
+
 </web-app>
