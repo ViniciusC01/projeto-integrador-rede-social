@@ -1,8 +1,8 @@
 package br.com.projetopi.redesocial.model;
 
 public class Foto {
-    int id;
-    long cd_foto;
+    private int id;
+    private byte[] cd_foto;
 
     public int getId() {
         return id;
@@ -12,11 +12,11 @@ public class Foto {
         this.id = id;
     }
 
-    public long getCd_foto() {
+    public byte[] getCd_foto() {
         return cd_foto;
     }
 
-    public void setCd_foto(long cd_foto) {
+    public void setCd_foto(byte[] cd_foto) {
         this.cd_foto = cd_foto;
     }
 }
