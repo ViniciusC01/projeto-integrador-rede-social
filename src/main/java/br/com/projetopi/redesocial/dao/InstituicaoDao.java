@@ -98,5 +98,20 @@ public class InstituicaoDao {
         return instituicoes;
     }
 
+    public int getId(Instituicao instituicao) throws SQLException {
+        String sql = "SELECT * FROM instituicao WHERE nome = ?";
+
+        PreparedStatement statement = con.prepareStatement(sql);
+        statement.setString(1, instituicao.getNome());
+        statement.execute();
+
+        try(ResultSet resultSet = statement.getResultSet()){
+            while(resultSet.next()){
+                return resultSet.getInt(1);
+            }
+        }
+        return 0;
+    }
+
 
 }

@@ -30,10 +30,10 @@ public class CursoDao {
         statement.setString(1, curso.getNome());
         statement.setString(2, curso.getTipo());
         statement.setString(3, curso.getArea());
-        statement.setInt(4, curso.getInstituicao_id());
+        statement.setInt(4,curso.getInstituicao_id());
 
         statement.execute();
-        System.out.println("Curso incluido com sucesso!");
+        //System.out.println("Curso incluido com sucesso!");
     }
 
     public void update(Curso curso, Curso cursoToUpdate) throws SQLException{
@@ -56,7 +56,7 @@ public class CursoDao {
         try(ResultSet rst = statement.getResultSet()){
             List<Curso> cursos = new ArrayList<>();
             while(rst.next()){
-                cursos.add(new Curso(rst.getString(1), rst.getNString(2), rst.getString(3), null, rst.getInt(4)));
+                cursos.add(new Curso(rst.getInt(1), rst.getString(2), rst.getNString(3), rst.getString(4), null, rst.getInt(5)));
             }
             return cursos;
         }
