@@ -89,7 +89,6 @@ public class Curso {
                 ", nome='" + nome + '\'' +
                 ", tipo='" + tipo + '\'' +
                 ", area='" + area + '\'' +
-                ", instituicao=" + instituicao +
                 ", instituicao_id=" + instituicao_id +
                 '}';
     }
