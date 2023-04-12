@@ -24,16 +24,21 @@ public class CursoDao {
     }
 
     public void createCurso(Curso curso) throws SQLException {
-        String sql = "INSERT INTO curso(NOME, TIPO, AREA, INSTITUICAO_ID) VALUES (?, ?, ?, ?)";
+        boolean cursoExists = cursoExists(curso);
+        System.out.println("Curso existe? " + cursoExists);
 
-        PreparedStatement statement = connection.prepareStatement(sql);
-        statement.setString(1, curso.getNome());
-        statement.setString(2, curso.getTipo());
-        statement.setString(3, curso.getArea());
-        statement.setInt(4,curso.getInstituicao_id());
+        if(!cursoExists){
+            String sql = "INSERT INTO curso(NOME, TIPO, AREA, INSTITUICAO_ID) VALUES (?, ?, ?, ?)";
 
-        statement.execute();
-        //System.out.println("Curso incluido com sucesso!");
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, curso.getNome());
+            statement.setString(2, curso.getTipo());
+            statement.setString(3, curso.getArea());
+            statement.setInt(4,curso.getInstituicao_id());
+
+            statement.execute();
+            //System.out.println("Curso incluido com sucesso!");
+        }
     }
 
     public void update(Curso curso, Curso cursoToUpdate) throws SQLException{
@@ -61,5 +66,22 @@ public class CursoDao {
             return cursos;
         }
     }
+
+    private boolean cursoExists(Curso curso) throws SQLException {
+        String sql = " SELECT EXISTS(SELECT * FROM CURSO WHERE nome = ?)";
+
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setString(1, curso.getNome());
+        preparedStatement.execute();
+
+        try( ResultSet rst = preparedStatement.getResultSet()){
+            while(rst.next()){
+                return rst.getBoolean(1);
+            }
+        }
+
+        return false;
+    }
+
 
 }
