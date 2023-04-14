@@ -1,4 +1,4 @@
-package br.com.projetopi.redesocial.controller;
+package br.com.projetopi.redesocial.controller.conta;
 
 import br.com.projetopi.redesocial.model.Conta;
 import br.com.projetopi.redesocial.service.ContaService;
@@ -13,8 +13,6 @@ import java.util.ArrayList;
 
 @WebServlet("/conta")
 public class ContaServlet extends HttpServlet {
-
-
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
