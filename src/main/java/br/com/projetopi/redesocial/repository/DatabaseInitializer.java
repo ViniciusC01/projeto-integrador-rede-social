@@ -62,6 +62,7 @@ public class DatabaseInitializer implements ServletContextListener {
                 nome varchar (30) not null,
                 data_nascimento date not null,
                 sobre varchar (200),
+                genero varchar(100),
                 usuario_id integer not null,
                 instituicao_id integer not null,
                 curso_id integer not null,
