@@ -94,4 +94,20 @@ public class Conta {
     public void setTurma_id(int turma_id) {
         this.turma_id = turma_id;
     }
+
+    @Override
+    public String toString() {
+        return "Conta{" +
+                "id=" + id +
+                ", cpf='" + cpf + '\'' +
+                ", nome='" + nome + '\'' +
+                ", data_nascimento=" + data_nascimento +
+                ", sobre='" + sobre + '\'' +
+                ", usuario_id=" + usuario_id +
+                ", instituiacao_id=" + instituiacao_id +
+                ", curso_id=" + curso_id +
+                ", foto_id=" + foto_id +
+                ", turma_id=" + turma_id +
+                '}';
+    }
 }

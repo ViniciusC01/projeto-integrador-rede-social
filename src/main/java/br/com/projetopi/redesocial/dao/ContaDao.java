@@ -98,7 +98,7 @@ public class ContaDao {
                 conta.setData_nascimento(result.getDate("data_nascimento"));
                 conta.setSobre(result.getString("sobre"));
                 conta.setUsuario_id(result.getInt("usuario_id"));
-                conta.setInstituiacao_id(result.getInt("instituiacao_id"));
+                conta.setInstituiacao_id(result.getInt("instituicao_id"));
                 conta.setCurso_id(result.getInt("curso_id"));
                 conta.setFoto_id(result.getInt("foto_id"));
                 conta.setTurma_id(result.getInt("turma_id"));
