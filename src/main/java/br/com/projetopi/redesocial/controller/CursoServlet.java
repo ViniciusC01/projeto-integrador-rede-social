@@ -23,14 +23,18 @@ public class CursoServlet extends HttpServlet {
             Instituicao instituicao = instituicaoDao.getInstituicao(1);
             System.out.println(instituicao);
 
-            Curso curso = new Curso("TADS", "EAD", "TI", instituicao, instituicao.getId());
+//            Curso curso = new Curso("TADS", "EAD", "TI", instituicao, instituicao.getId());
+//            Curso curso2 = new Curso("TADS Noturno", "Presencial", "TI", instituicao, instituicao.getId());
             CursoDao cursoDao = new CursoDao();
 
-            cursoDao.createCurso(curso);
+//            cursoDao.createCurso(curso);
+//            cursoDao.createCurso(curso2);
+//            cursoDao.delete(2);
+
             List<Curso> cursos = cursoDao.findAll();
             cursos.forEach(x -> System.out.println(x));
 
-            req.setAttribute("curso", cursos.get(0).getNome());
+            req.setAttribute("curso", cursoDao.findById(3).getNome());
             req.getRequestDispatcher("curso.jsp").forward(req, resp);
 
         } catch(SQLException e) {

@@ -1,6 +1,7 @@
 package br.com.projetopi.redesocial.dao;
 
 import br.com.projetopi.redesocial.model.Curso;
+import br.com.projetopi.redesocial.model.Instituicao;
 import br.com.projetopi.redesocial.repository.ConnectionFactory;
 
 import java.sql.*;
@@ -68,11 +69,28 @@ public class CursoDao {
         }
     }
 
-    public void delete(Curso curso) throws SQLException {
-        String sql = "DELETE FROM curso WHERE nome = ?";
+    public Curso findById(int id) throws SQLException {
+        String sql =  "SELECT * FROM curso WHERE id = " + id;
 
         PreparedStatement statement = connection.prepareStatement(sql);
-        statement.setString(1, curso.getNome());
+        statement.execute();
+
+        try(ResultSet set = statement.getResultSet()){
+            while(set.next()){
+                Instituicao instituicao = new Instituicao();
+                instituicao.setId(set.getInt(5));
+                Curso curso = new Curso(set.getInt(1), set.getString(2), set.getString(3),
+                        set.getString(4), instituicao, instituicao.getId());
+                return curso;
+            }
+        }
+        return null;
+    }
+
+    public void delete(int id) throws SQLException {
+        String sql = "DELETE FROM curso WHERE id = " + id;
+
+        PreparedStatement statement = connection.prepareStatement(sql);
         statement.execute();
     }
 
