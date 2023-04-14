@@ -22,9 +22,15 @@ public class InstituicaoDao {
     }
     public void add(Instituicao instituicao){
         String sqlQuery = "insert into instituicao (nome) values (?)";
-        try(PreparedStatement ps =  con.prepareStatement(sqlQuery)){
+        try(PreparedStatement ps =  con.prepareStatement(sqlQuery, Statement.RETURN_GENERATED_KEYS)){
             ps.setString(1, instituicao.getNome());
             ps.execute();
+
+            try(ResultSet generatedKeys = ps.getGeneratedKeys()){
+                while(generatedKeys.next()){
+                    instituicao.setId(generatedKeys.getInt(1));
+                }
+            }
         }catch(SQLException e){
             e.printStackTrace();
         }
@@ -98,20 +104,22 @@ public class InstituicaoDao {
         return instituicoes;
     }
 
-    public int getId(Instituicao instituicao) throws SQLException {
-        String sql = "SELECT * FROM instituicao WHERE nome = ?";
+    public Instituicao getInstituicao(int id) throws SQLException {
+        String sql = "SELECT * FROM instituicao WHERE id = ?";
 
         PreparedStatement statement = con.prepareStatement(sql);
-        statement.setString(1, instituicao.getNome());
+        statement.setInt(1, id);
+
         statement.execute();
 
-        try(ResultSet resultSet = statement.getResultSet()){
-            while(resultSet.next()){
-                return resultSet.getInt(1);
+        Instituicao instituicao = new Instituicao();
+        try(ResultSet rs = statement.getResultSet()){
+            while(rs.next()){
+                instituicao.setId(rs.getInt(1));
+                instituicao.setNome(rs.getString(2));
             }
         }
-        return 0;
+
+        return instituicao;
     }
-
-
 }

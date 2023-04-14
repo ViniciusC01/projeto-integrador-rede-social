@@ -19,13 +19,11 @@ public class CursoServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException { //TESTA METODO FIND ALL
         try{
-            Instituicao instituicao = new Instituicao();
-            instituicao.setNome("Teste");
-
             InstituicaoDao instituicaoDao = new InstituicaoDao();
-            instituicaoDao.add(instituicao);
+            Instituicao instituicao = instituicaoDao.getInstituicao(1);
+            System.out.println(instituicao);
 
-            Curso curso = new Curso("ADS", "EAD", "TI", instituicao, instituicaoDao.getId(instituicao));
+            Curso curso = new Curso("TADS", "EAD", "TI", instituicao, instituicao.getId());
             CursoDao cursoDao = new CursoDao();
 
             cursoDao.createCurso(curso);

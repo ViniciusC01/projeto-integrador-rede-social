@@ -3,10 +3,7 @@ package br.com.projetopi.redesocial.dao;
 import br.com.projetopi.redesocial.model.Curso;
 import br.com.projetopi.redesocial.repository.ConnectionFactory;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,19 +22,23 @@ public class CursoDao {
 
     public void createCurso(Curso curso) throws SQLException {
         boolean cursoExists = cursoExists(curso);
-        System.out.println("Curso existe? " + cursoExists);
 
         if(!cursoExists){
             String sql = "INSERT INTO curso(NOME, TIPO, AREA, INSTITUICAO_ID) VALUES (?, ?, ?, ?)";
 
-            PreparedStatement statement = connection.prepareStatement(sql);
+            PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, curso.getNome());
             statement.setString(2, curso.getTipo());
             statement.setString(3, curso.getArea());
             statement.setInt(4,curso.getInstituicao_id());
 
             statement.execute();
-            //System.out.println("Curso incluido com sucesso!");
+
+            try(ResultSet rs = statement.getGeneratedKeys()){
+                while(rs.next()){
+                    curso.setId(rs.getInt(1));
+                }
+            }
         }
     }
 
@@ -65,6 +66,14 @@ public class CursoDao {
             }
             return cursos;
         }
+    }
+
+    public void delete(Curso curso) throws SQLException {
+        String sql = "DELETE FROM curso WHERE nome = ?";
+
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setString(1, curso.getNome());
+        statement.execute();
     }
 
     private boolean cursoExists(Curso curso) throws SQLException {
