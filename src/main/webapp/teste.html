@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Formulário teste CRUD</title>
+    </head>
+<body>
+
+<h1>Formulário foto CRUD</h1>
+
+<iframe src="teste2.html"></iframe>
+
+
+<form method="post" action="/exemplo-servlet">
+    <!--  <label for="POSTt">Nome:</label>-->
+    POST: <input type="text" id="id_post" name="id_post" placeholder="ID">
+    <input type="text" id="cdfoto_post" name="cdfoto_post" placeholder="Codigo foto">
+    <button type="submit">Adicionar</button>
+</form>
+
+</br>
+
+<form method="post" action="/exemplo-servlet">
+    <input type="hidden" name="_method" value="DELETE">
+    <!--  <label for="id">ID:</label>-->
+    DELETE: <input type="text" id="id_delete" name="id_delete" placeholder="ID">
+    <button type="submit">Excluir</button>
+</form>
+
+</br>
+
+<form method="post" action="/exemplo-servlet" enctype="multipart/form-data">
+    <input type="hidden" name="_method" value="PUT">
+    <label for="id_put">PUT:</label>
+    <input type="text" id="id_put" name="id_put" placeholder="ID">
+    <input type="file" name="cdfoto_put"><br>
+</form>>
+    <button type="submit">Alterar</button>
+
+<!--</form>-->
+
+<!--<form method="post" action="/exemplo-servlet">-->
+<!--    <input type="hidden" name="_method" value="get">-->
+<!--    <input type="text" id="id_get" name="id_get" placeholder="ID">-->
+<!--    <button type="submit">Alterar</button>-->
+<!--</form>-->
+<br>
+
+<h1>Upload de Imagem</h1>
+
+<form action="exemplo-servlet" method="POST" enctype="multipart/form-data">
+    <input type="file" name="img"> <br>
+    <input type="text" name="id" placeholder="ID">
+    <input type="submit" value="Enviar">
+</form>
+
+</body>
+</html>
