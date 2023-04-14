@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 import br.com.projetopi.redesocial.repository.ConnectionFactory;
+import br.com.projetopi.redesocial.tests.CursoTest;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -28,6 +29,7 @@ public class HelloServlet extends HttpServlet {
 
         try(Connection connectionFactory = ConnectionFactory.getConnectionH2();) {
             System.out.println("Conexão ok");
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

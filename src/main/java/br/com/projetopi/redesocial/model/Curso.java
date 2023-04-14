@@ -21,6 +21,15 @@ public class Curso {
         this.instituicao_id = instituicao_id;
     }
 
+    public Curso(Integer id, String nome, String tipo, String area, Instituicao instituicao, Integer instituicao_id) {
+        this.id = id;
+        this.nome = nome;
+        this.tipo = tipo;
+        this.area = area;
+        this.instituicao = instituicao;
+        this.instituicao_id = instituicao_id;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -89,7 +98,6 @@ public class Curso {
                 ", nome='" + nome + '\'' +
                 ", tipo='" + tipo + '\'' +
                 ", area='" + area + '\'' +
-                ", instituicao=" + instituicao +
                 ", instituicao_id=" + instituicao_id +
                 '}';
     }

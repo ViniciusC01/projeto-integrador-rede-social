@@ -4,31 +4,149 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link rel="stylesheet" href="./style/register.css">
+
     <title>CAPIVA</title>
 </head>
 <body>
+    <header class="logo">
+        <a href="./login.html">
+            <img src="" alt="">
+        </a>
+    </header>
     <main>
-        <section class="register">
-            <div class="container">
-                <div class="card">
-                    <img src="" alt="">
-                    <h4>Cadastre-se para ver fotos e vídeos dos seus amigos.</h4>
-                    <input type="text" name="username" id="username" class="username" placeholder="Nome de usuário">
-                    <input type="email" name="useremail" id="useremail" class="useremail" placeholder="E-mail">
-                    <input type="password" name="userpassword" id="userpassword" class="userpassword"placeholder="Senha">
-                    <input type="date" name="userbirth" id="userbirth" class="userbirth">
-                    <select name="usergender" id="usergender">
+        <div class="cardRegister">
+            <h1>Cadastre-se</h1>
+
+            <form id="form" action="/conta" method="post">
+
+                <div class="fields field1">
+                    <input type="text" name="firstName" id="firstName" class="field" placeholder="Nome">
+                    <span class="error material-icons-round">error</span>
+                    <span class="success material-icons-round">check_circle</span>
+                    <small>Mensagem de erro</small>
+                </div>
+
+                <div class="fields field2">
+                    <input type="text" name="lastName" id="lastName" class="field" placeholder="Sobrenome">
+                    <span class="error material-icons-round">error</span>
+                    <span class="success material-icons-round">check_circle</span>
+                    <small>Mensagem de erro</small>
+                </div>
+                
+                <div class="fields field3">
+                    <input type="date" name="birth" id="birth" class="field">
+                    <span class="error material-icons-round">error</span>
+                    <span class="success material-icons-round">check_circle</span>
+                    <small>Mensagem de erro</small>
+                </div>
+
+                <div class="fields field4">
+                    <select name="gender" id="gender" class="field">
+                        <option value="gender" selected disabled>Gênero</option>
                         <option value="male">Masculino</option>
                         <option value="female">Feminino</option>
                         <option value="other">Outros</option>
                     </select>
+                    <span class="error material-icons-round">error</span>
+                    <span class="success material-icons-round">check_circle</span>
+                    <small>Mensagem de erro</small>
+                </div>
+
+                <div class="fields field5">
+                    <input type="tel" name="telephone" id="telephone" class="field" placeholder="(xx) x xxxx-xxxx">
+                    <span class="error material-icons-round">error</span>
+                    <span class="success material-icons-round">check_circle</span>
+                    <small>Mensagem de erro</small>
+                </div>
+
+                <div class="fields field6">
+                    <input type="text" name="university" id="university" class="field" placeholder="Universidade">
+                    <span class="error material-icons-round">error</span>
+                    <span class="success material-icons-round">check_circle</span>
+                    <small>Mensagem de erro</small>
+                </div>
+                
+                <div class="fields field7">
+                    <input type="text" name="course" id="course" class="field" placeholder="Curso">
+                    <span class="error material-icons-round">error</span>
+                    <span class="success material-icons-round">check_circle</span>
+                    <small>Mensagem de erro</small>
+                </div>
+                
+                <div class="fields field8">
+                    <select name="shift" id="shift" class="field">
+                        <option value="shift" selected disabled>Turno</option>
+                        <option value="matinal">Matinal</option>
+                        <option value="noturno">Noturno</option>
+                        <option value="integral">Integral</option>
+                    </select>
+                    <span class="error material-icons-round">error</span>
+                    <span class="success material-icons-round">check_circle</span>
+                    <small>Mensagem de erro</small>
+                </div>
+                
+                <div class="fields field9">
+                    <input type="text" name="year" id="year" class="field" placeholder="Ano início">
+                    <span class="error material-icons-round">error</span>
+                    <span class="success material-icons-round">check_circle</span>
+                    <small>Mensagem de erro</small>
+                </div>
+
+                <div class="fields field10">
+                    <select name="semester" id="semester" class="field">
+                        <option value="semester" selected disabled>Semestre</option>
+                        <option value="matinal">Primeiro</option>
+                        <option value="noturno">Segundo</option>
+                    </select>
+                    <span class="error material-icons-round">error</span>
+                    <span class="success material-icons-round">check_circle</span>
+                    <small>Mensagem de erro</small>
+                </div>
+                
+                <div class="fields field11">
+                    <select name="team" id="team" class="field"> // TODO: verificar se vai usar ou não(se sim, criar js)
+                        <option value="team" selected disabled>Turma</option>
+                        <option value="a">A</option>
+                        <option value="b">B</option>
+                    </select>
+                    <span class="error material-icons-round">error</span>
+                    <span class="success material-icons-round">check_circle</span>
+                    <small>Mensagem de erro</small>
+                </div>
+
+                <div class="fields field12">
+                    <input type="email" name="email" id="email" class="field" placeholder="E-mail">
+                    <span class="error material-icons-round">error</span>
+                    <span class="success material-icons-round">check_circle</span>
+                    <small>Mensagem de erro</small>
+                </div>
+                
+                <div class="fields field13">
+                    <input type="password" name="password" id="password" class="field"placeholder="Senha">
+                    <span class="error material-icons-round">error</span>
+                    <span class="success material-icons-round">check_circle</span>
+                    <small>Mensagem de erro</small>
+                </div>
+
+                <div class="fields field14">
+                    <input type="password" name="passwordConfirmation" id="passwordConfirmation" class="field"placeholder="Confirmar senha">
+                    <span class="error material-icons-round">error</span>
+                    <span class="success material-icons-round">check_circle</span>
+                    <small>Mensagem de erro</small>
+                </div>
+
+                <div class="btn">
                     <button type="submit" class="btnRegister">CADASTRAR</button>
                 </div>
-            </div>
-        </section>
+            </form>
+        </div>
     </main>
     <footer>
         <p>&copy; CAPIVA. Todos os direitos reservados.</p>
     </footer>
+    <script src="./js/register.js"></script>
 </body>
 </html>

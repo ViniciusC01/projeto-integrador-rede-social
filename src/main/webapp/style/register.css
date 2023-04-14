@@ -1,0 +1,196 @@
+@font-face {
+    font-family: 'Gumela';
+    src: local('Gumela'), url('../font/Gumela-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'GumelaRegular';
+    src: local('GumelaRegular'), url('../font/Gumela-Regular.ttf') format('truetype');
+}
+
+:root{
+    /* Colors */
+    --white: #FFF;
+    --black: #222;
+    --emphasis: #7C162E;
+    --black-mono: #191528cf;
+    --white-mono: #38383970;
+
+    /* Paddings */
+    --paddingCard: 1.5rem;
+    --paddingButton: 0.5rem;
+
+    /* BorderRadius */
+    --borderRadiusCard: 3.125rem;
+    --borderRadiusButton: 0.625rem;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    text-decoration: none;
+    font-family: 'Gumela', 'GumelaRegular';
+    font-weight: normal;
+}
+
+body{
+    background-image: url(../img/background-register.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: var(--white);
+    width: 100vw;
+    height: 100vh;
+}
+
+header{
+    display: flex;
+    background: transparent;
+    position: fixed;
+    margin: 2rem;
+}
+
+.logo > a > img{
+    align-items: left;
+    content: "";
+    width: 6rem;
+    height: 4rem;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 95vh;
+    width: 100vw;
+}
+
+.cardRegister{
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    min-height: 450px;
+    padding: var(--paddingCard);
+    justify-content: space-around;
+    align-items: center;
+    gap: 1rem;
+    background: var(--black-mono);
+    border-radius: var(--borderRadiusCard);
+}
+
+.cardRegister > h1{
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+form{
+    display: flex;
+    flex-flow: row wrap;
+    padding: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.fields{
+    display: flex;
+    position: relative;
+    flex: 1 0 100%;
+}
+.fields span{
+    font-size: 1.1rem;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    visibility: hidden;
+}
+.fields small {
+    position: absolute;
+    bottom: 10px;
+    visibility: hidden;
+}
+
+.fields.success span.success {
+    color: #2ecc71;
+    visibility: visible;
+}
+
+.fields.error span.error {
+    color: #e74c3c;
+    visibility: visible;
+}
+
+/* .fields.error small {
+    color: #e74c3c;
+    visibility: visible;
+} */
+
+.field{
+    margin: 0 0.5rem 0.5rem 0;
+    padding: 0.5rem 1rem;
+    border: 1px solid #CCC;
+    border-radius: 1rem;
+}
+.field{    
+    flex: 1 0 50%; /*flex magic*/
+    width: 100;
+    float: left;
+}
+.field1, .field2{
+    flex: 50%;
+}
+.field3, .field4{
+    flex: 25%;
+}
+.field5{
+    flex: 10%;
+}
+.field6{
+    flex: 100%;
+}
+
+.field7{
+    flex: 100%;
+}
+
+.field8, .field9, .field10, .field11{
+    flex: 25%;
+}
+
+.field12{
+    flex: 100%;
+}
+.field13, .field14{
+    flex: 50%;
+}
+
+.btnRegister{
+    padding: var(--paddingButton);
+    border-radius: var(--borderRadiusButton);
+    color: var(--color);
+    background: var(--emphasis);
+    font-weight: bold;
+    font-size: 1rem;
+    width: 11rem;
+    height: 2.5rem;
+}
+.btnRegister:hover{
+    color: var(--emphasis);
+    background: var(--white);
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5vh;
+    width: 100vw;
+    background: var(--black-mono);
+}
+
+footer > p{
+    font-size: 0.6rem;
+    font-style: italic;
+}
+

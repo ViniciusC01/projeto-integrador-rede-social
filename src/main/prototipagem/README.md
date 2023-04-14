@@ -6,11 +6,11 @@
 
 ### Página de cadastro
 
-![image](cadastro.png)
+![image](register.png)
 
 ### Página de home
 
-![image](home.png)
+![image](feed.png)
 
 ### Página do chat
 

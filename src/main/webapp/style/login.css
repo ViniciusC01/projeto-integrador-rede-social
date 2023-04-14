@@ -1,16 +1,28 @@
+@font-face {
+    font-family: 'Gumela';
+    src: local('Gumela'), url('../font/Gumela-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'GumelaRegular';
+    src: local('GumelaRegular'), url('../font/Gumela-Regular.ttf') format('truetype');
+}
+
 :root{
     /* Colors */
     --white: #FFF;
     --black: #222;
-    --emphasis: #4B9;
+    --emphasis: #7C162E;
+    --black-mono: #191528cf;
+    --white-mono: #38383970;
 
     /* Paddings */
-    --paddingCard: 1rem;
+    --paddingCard: 1.5rem;
     --paddingButton: 0.5rem;
 
     /* BorderRadius */
-    --borderRadiusCard: 1rem;
-    --borderRadiusButton: 2rem;
+    --borderRadiusCard: 3.125rem;
+    --borderRadiusButton: 0.625rem;
 }
 
 *{
@@ -18,6 +30,17 @@
     padding: 0;
     border: 0;
     text-decoration: none;
+    font-family: 'Gumela', 'GumelaRegular';
+    font-weight: normal;
+    font-size: 1.25rem;
+}
+
+body{
+    background-image: url(../img/background-login.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: var(--white);
 }
 
 header{
@@ -30,8 +53,8 @@ header{
 .logo > img{
     align-items: left;
     content: "";
-    width: 10rem;
-    height: 5rem;
+    width: 6rem;
+    height: 4rem;
 }
 
 main{
@@ -52,16 +75,19 @@ main{
 .left > h1{
     margin-top: 5rem;
     margin-bottom: 2rem;
+    font-weight: bold;
+    font-size: 1.8rem;
 }
 .cardLeft{
     display: flex;
     flex-direction: column;
+    width: 400px;
+    height: 350px;
     padding: var(--paddingCard);
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     gap: 1rem;
-    background: #444;
-    color: var(--white);
+    background: var(--black-mono);
     border-radius: var(--borderRadiusCard);
 }
 
@@ -69,6 +95,10 @@ main{
     padding: var(--paddingButton);
     border-radius: var(--borderRadiusButton);
     background: var(--emphasis);
+    font-weight: bold;
+    font-size: 1.25rem;
+    width: 10rem;
+    height: 2.5rem;
 }
 
 .cardLeft > button > a{
@@ -80,26 +110,42 @@ main{
     flex-direction: column;
     padding: 2rem;
     width: 50vw;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
-    background: var(--black);
 }
 
 .cardRight{
     display: flex;
     flex-direction: column;
+    width: 16rem;
+    height: 16rem;
     padding: var(--paddingCard);
     justify-content: center;
     align-items: center;
     gap: 1rem;
-    background: #FFFFFF10;
-    color: var(--white);
+    background: var(--white-mono);
     border-radius: var(--borderRadiusCard);
+}
+
+.cardRight > h2{
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
 .inputs{
     display: flex;
     gap: 0.5rem;
+}
+
+.inputs > span{
+    font-size: 2rem;
+}
+
+.inputs > input{
+    background: #FFFFFF08;
+    border-bottom: 2px solid var(--white);
+    width: 10.5rem;
+    height: 2rem;
 }
 
 .btnLogin{
@@ -108,10 +154,23 @@ main{
     color: var(--emphasis);
     background: var(--white);
     font-weight: bold;
+    font-size: 1.5rem;
+    width: 12.8rem;
+    height: 2.5rem;
+}
+
+.btnLogin:hover{
+    color: var(--white);
+    background: var(--emphasis);
 }
 
 .cardRight > span > a{
     color: var(--white);
+    font-size: 0.8rem;
+}
+
+.cardRight > span > a:hover{
+    color: var(--emphasis);
 }
 
 footer{
@@ -120,11 +179,10 @@ footer{
     align-items: center;
     height: 5vh;
     width: 100vw;
-    background: var(--emphasis);
+    background: var(--black-mono);
 }
 
 footer > p{
     font-size: small;
     font-style: italic;
-    color: var(--white);
 }
