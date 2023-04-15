@@ -1,18 +1,25 @@
 package br.com.projetopi.redesocial.service;
 
 import br.com.projetopi.redesocial.dao.ContaDao;
+import br.com.projetopi.redesocial.dao.CursoDao;
 import br.com.projetopi.redesocial.dao.InstituicaoDao;
+import br.com.projetopi.redesocial.dao.UsuarioDao;
 import br.com.projetopi.redesocial.model.Conta;
 import br.com.projetopi.redesocial.model.Instituicao;
+import br.com.projetopi.redesocial.model.Usuario;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ContaService {
 
-    ContaDao contaDao;
+    private ContaDao contaDao;
+    private UsuarioDao usuarioDao;
 
     public ContaService(){
-        contaDao = new ContaDao();
+
+        this.contaDao = new ContaDao();
+        this.usuarioDao = new UsuarioDao();
     }
 
     public ArrayList<Conta> getContaAll(int qtd_elementos, int num_inico){
@@ -22,4 +29,18 @@ public class ContaService {
     public Conta getContaById(int id){
         return contaDao.findById(id);
     }
+
+    public boolean insert(Conta conta, Usuario usuario) {
+        try{
+
+        this.usuarioDao.add(usuario);
+
+        this.contaDao.add(conta);
+
+            return true;
+        }catch (SQLException e){
+            e.getMessage();
+        }
+        return true;
+        }
 }
