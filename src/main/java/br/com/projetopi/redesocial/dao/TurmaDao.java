@@ -5,10 +5,7 @@ import br.com.projetopi.redesocial.model.Conta;
 import br.com.projetopi.redesocial.model.Turma;
 import br.com.projetopi.redesocial.repository.ConnectionFactory;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class TurmaDao implements Dao<Turma> {
@@ -60,6 +57,27 @@ public class TurmaDao implements Dao<Turma> {
             e.printStackTrace();
         }
         return turmas;
+    }
+    public Turma findTurmaByDataIdCursoSemestre(Date data_inicio, int id_curso, String semestre){
+        String sqlQuery = "select * from turma where year(?) = 2022 and id_curso = ? and semestre = ?";
+        Turma turma = new Turma();
+        try(PreparedStatement ps = conexao.prepareStatement(sqlQuery)) {
+            ps.setDate(1, data_inicio);
+            ps.setInt(2, id_curso);
+            ps.setString(3, semestre);
+            ResultSet result = ps.executeQuery();
+            while(result.next()){
+                turma.setCurso_id(result.getInt("id_curso"));
+                turma.setData_inicio(result.getDate("data_inicio"));
+                turma.setLetra(result.getString("letra"));
+                turma.setSemestre(result.getString("semestre"));
+                turma.setTurno(result.getString("turno"));
+                turma.setId(result.getInt("id"));
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return turma;
 
     }
 

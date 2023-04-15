@@ -13,11 +13,7 @@ public class CursoDao {
     private Connection connection;
 
     public CursoDao() {
-        try{
-            this.connection = ConnectionFactory.getConnectionH2();
-        } catch(SQLException e){
-           e.printStackTrace();
-        }
+        this.connection = ConnectionFactory.getConnectionH2();
     }
     public void createCurso(Curso curso) throws SQLException {
         boolean cursoExists = cursoExists(curso);
