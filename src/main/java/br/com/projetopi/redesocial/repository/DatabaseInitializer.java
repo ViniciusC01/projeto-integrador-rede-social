@@ -50,6 +50,7 @@ public class DatabaseInitializer implements ServletContextListener {
                 id integer primary key AUTO_INCREMENT,
                 id_curso integer  not null,
                 data_inicio date not null,
+                turno varchar(30) not null,
                 semestre binary not null,
                 letra char not null,
                 foreign key (id_curso) references curso(id));

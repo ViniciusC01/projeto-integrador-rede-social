@@ -182,3 +182,16 @@ function getInstituicoes(){
             console.log(data)
         })
 }
+
+function getCursosByInstituicaoId(id){
+    fetch("http://localhost:8080/api_cursos_by_email?instituicao_id="+id)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+        })
+}
+
+document.querySelector('#instituicao').addEventListener('change', (e) => {
+    id = document.querySelector('#instituicao').value
+    getCursosByInstituicaoId(id)
+})
