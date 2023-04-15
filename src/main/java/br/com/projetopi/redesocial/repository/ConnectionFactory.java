@@ -17,7 +17,7 @@ public class ConnectionFactory {
         }
     }
 
-    public static Connection getConnectionH2() throws SQLException {
+    public static Connection getConnectionH2()  {
         try {
             //Class.forName("com.mysql.jdbc.Driver");
             return DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
