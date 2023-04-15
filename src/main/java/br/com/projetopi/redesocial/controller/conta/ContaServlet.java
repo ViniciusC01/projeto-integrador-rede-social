@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 
-@WebServlet("/conta")
+@WebServlet("/contass")
 public class ContaServlet extends HttpServlet {
 
     @Override

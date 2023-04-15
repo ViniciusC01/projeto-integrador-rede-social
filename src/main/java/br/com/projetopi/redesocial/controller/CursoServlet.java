@@ -34,7 +34,7 @@ public class CursoServlet extends HttpServlet {
             List<Curso> cursos = cursoDao.findAll();
             cursos.forEach(x -> System.out.println(x));
 
-            req.setAttribute("curso", cursoDao.findById(3).getNome());
+            req.setAttribute("curso", cursoDao.findById(1).getNome());
             req.getRequestDispatcher("curso.jsp").forward(req, resp);
 
         } catch(SQLException e) {

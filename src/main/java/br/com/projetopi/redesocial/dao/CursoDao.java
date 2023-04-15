@@ -18,9 +18,7 @@ public class CursoDao {
         } catch(SQLException e){
            e.printStackTrace();
         }
-
     }
-
     public void createCurso(Curso curso) throws SQLException {
         boolean cursoExists = cursoExists(curso);
 
@@ -106,9 +104,31 @@ public class CursoDao {
                 return rst.getBoolean(1);
             }
         }
-
         return false;
     }
 
 
+    public ArrayList<Curso> getCursosByInstituicaoId(int instituicaoId) {
+        String sqlQuery = "select * from curso where instituicao_id = ?";
+        ArrayList<Curso> cursos = new ArrayList<>();
+        try(PreparedStatement ps = connection.prepareStatement(sqlQuery)){
+            ps.setInt(1, instituicaoId);
+            ResultSet result = ps.executeQuery();
+            while(result.next()){
+
+                Curso curso = new Curso();
+                curso.setTipo(result.getString("tipo"));
+                curso.setNome(result.getString("nome"));
+                curso.setArea(result.getString("area"));
+                curso.setId(result.getInt("id"));
+
+                cursos.add(curso);
+
+            }
+            return cursos;
+        }catch (SQLException e){
+            System.out.println(e.getMessage());
+        }
+        return cursos;
+    }
 }
