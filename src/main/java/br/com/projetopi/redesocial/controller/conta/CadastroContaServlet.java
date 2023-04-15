@@ -29,7 +29,6 @@ public class CadastroContaServlet  extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-
         int id;
         try{
             // dados usuario
@@ -37,39 +36,35 @@ public class CadastroContaServlet  extends HttpServlet {
             String senha = req.getParameter("senha");
             String papel = "Aluno";
             Usuario usuario = new Usuario(email, senha, papel);
+            usuarioService.add(usuario);
             id = usuarioService.getIdByEmail(email);
         }catch (Exception e){
             throw new ServletException("Erro ao cadastrar usuário");
         }
+        try {
+            String cpf = req.getParameter("cpf"); // TODO CRIAR
+            String nome = req.getParameter("nome");
+            String data_nascimento = req.getParameter("data_nascimento");
+            String sobre = req.getParameter("sobre");// TODO CRIAR
+            String instituicao_id = req.getParameter("instituicao_id");
+            String curso_id = req.getParameter("curso_id");
+            String foto_id = req.getParameter("foto_id");
+            String turma_id = req.getParameter("turma_id");
 
-        try{
-        String cpf = req.getParameter("cpf"); // TODO CRIAR
-        String nome = req.getParameter("nome");
-        String data_nascimento = req.getParameter("data_nascimento");
-        String sobre = req.getParameter("sobre");// TODO CRIAR
-        String instituicao_id = req.getParameter("instituicao_id");
-        String curso_id = req.getParameter("curso_id");
-        String foto_id = req.getParameter("foto_id");
-        String turma_id = req.getParameter("turma_id");
-
-        Conta conta = new Conta();
-        conta.setCpf(cpf);
-        conta.setNome(nome);
-        conta.setData_nascimento(Date.valueOf(data_nascimento));
-        conta.setSobre(sobre);
-        conta.setUsuario_id(Integer.valueOf(id));
-        conta.setInstituiacao_id(Integer.valueOf(instituicao_id));
-        conta.setCurso_id(Integer.valueOf(curso_id));
-        conta.setFoto_id(Integer.valueOf(foto_id));
-        conta.setTurma_id(Integer.valueOf(turma_id));
-        ContaService contaService = new ContaService();
-
-        contaService.insert(conta, usuario);
-        req.setAttribute("cadastro", "sucesso");
-
-        System.out.println("Erro: " + e.getMessage());
-        req.setAttribute("cadastro", "fracasso");
-
+            Conta conta = new Conta();
+            conta.setCpf(cpf);
+            conta.setNome(nome);
+            conta.setData_nascimento(Date.valueOf(data_nascimento));
+            conta.setSobre(sobre);
+            conta.setUsuario_id(Integer.valueOf(id));
+            conta.setInstituiacao_id(Integer.valueOf(instituicao_id));
+            conta.setCurso_id(Integer.valueOf(curso_id));
+            conta.setFoto_id(Integer.valueOf(foto_id));
+            conta.setTurma_id(Integer.valueOf(turma_id));
+            ContaService contaService = new ContaService();
+            contaService.add(conta);
+            req.setAttribute("cadastro", "sucesso");
+        }
         catch (Exception e){
             System.out.println("Erro: " + e.getMessage());
             req.setAttribute("cadastro", "fracasso");

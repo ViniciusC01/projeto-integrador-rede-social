@@ -3,6 +3,7 @@ package br.com.projetopi.redesocial.model;
 import java.sql.Date;
 import java.time.LocalDate;
 
+
 public class Conta {
     private int id;
     private String cpf;

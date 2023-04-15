@@ -30,17 +30,8 @@ public class ContaService {
         return contaDao.findById(id);
     }
 
-    public boolean insert(Conta conta, Usuario usuario) {
-        try{
-
-        this.usuarioDao.add(usuario);
-
+    public boolean add(Conta conta) {
         this.contaDao.add(conta);
-
-            return true;
-        }catch (SQLException e){
-            e.getMessage();
-        }
         return true;
-        }
+    }
 }

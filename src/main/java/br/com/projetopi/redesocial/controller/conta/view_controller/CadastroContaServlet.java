@@ -1,4 +1,4 @@
-package br.com.projetopi.redesocial.controller.conta.viewController;
+package br.com.projetopi.redesocial.controller.conta.view_controller;
 
 
 import javax.servlet.ServletException;
