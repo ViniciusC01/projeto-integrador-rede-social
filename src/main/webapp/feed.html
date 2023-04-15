@@ -1,157 +1,99 @@
 <!DOCTYPE html>
 <html lang="pt">
+
+<!-- <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> -->
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0..1,0" />
+    
     <link rel="stylesheet" href="./style/feed.css">
+    <script src="./js/feed.js" defer></script>
 
     <title>CAPIVA</title>
 </head>
 <body>
     <main>
+        <!-- HEADER -->
         <header>
             <div class="logo">
                 <img src="" alt="">
             </div>
         </header>
+        <!-- POST's -->
         <div class="container">
+            <!-- <c:forEach var="" items="${}"> --> <!-- Repeti os items -->
             <div class="post">
                 <img src="" alt="">
                 <div class="legend">
-                    <p>Legenda</p>
-                    <span class="material-symbols-outlined">
-                        arrow_drop_down
-                    </span>
-                    <span class="material-symbols-outlined">
-                        arrow_drop_up
-                    </span>
+                    <textarea class="textLegend" disabled>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis voluptatum doloribus laboriosam voluptates, nihil dolor est tempora dolorem! Facere voluptates nisi molestias, illum pariatur deserunt qui eaque quidem. Id, officia?</textarea>
+                    <button class="btnlegend">
+                        <span class="material-symbols-outlined arrow" data-arrow="down-arrow">
+                            arrow_drop_down
+                        </span>
+                    </button>
                 </div>
                 <div class="interactions">
-                    <div class="reactions">
-                        <span class="icon material-symbols-outlined">favorite</span>
-                        <span class="icon material-symbols-outlined">Comment</span>
-                        <span class="icon material-symbols-outlined">share</span>
-                    </div>
+                    <button class="btnFavorite">
+                        <span class="icon material-symbols-outlined favorite" data-like="dislike">favorite</span>
+                    </button>
+                    <button class="btnComment">
+                        <span class="icon material-symbols-outlined comment" data-comment="closed">Comment</span>
+                    </button>
+                    <button class="btnShare">
+                        <span class="icon material-symbols-outlined share" data-share="closed">share</span>
+                    </button>
+                </div>
+            </div>
+            <!--  </c:forEach> -->
+            <div class="post">
+                <img src="" alt="">
+                <div class="legend">
+                    <textarea class="textLegend" disabled>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis voluptatum doloribus laboriosam voluptates, nihil dolor est tempora dolorem! Facere voluptates nisi molestias, illum pariatur deserunt qui eaque quidem. Id, officia?</textarea>
+                    <button class="btnlegend">
+                        <span class="material-symbols-outlined arrow" data-arrow="down-arrow">
+                            arrow_drop_down
+                        </span>
+                    </button>
+                </div>
+                <div class="interactions">
+                    <button class="btnFavorite">
+                        <span class="icon material-symbols-outlined favorite" data-like="dislike">favorite</span>
+                    </button>
+                    <button class="btnComment">
+                        <span class="icon material-symbols-outlined comment" data-comment="closed">Comment</span>
+                    </button>
+                    <button class="btnShare">
+                        <span class="icon material-symbols-outlined share" data-share="closed">share</span>
+                    </button>
                 </div>
             </div>
             <div class="post">
                 <img src="" alt="">
                 <div class="legend">
-                    <p>Legenda</p>
-                    <span class="material-symbols-outlined">
-                        arrow_drop_down
-                    </span>
-                    <span class="material-symbols-outlined">
-                        arrow_drop_up
-                    </span>
+                    <textarea class="textLegend" disabled>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis voluptatum doloribus laboriosam voluptates, nihil dolor est tempora dolorem! Facere voluptates nisi molestias, illum pariatur deserunt qui eaque quidem. Id, officia?</textarea>
+                    <button class="btnlegend">
+                        <span class="material-symbols-outlined arrow" data-arrow="down-arrow">
+                            arrow_drop_down
+                        </span>
+                    </button>
                 </div>
                 <div class="interactions">
-                    <div class="reactions">
-                        <span class="icon material-symbols-outlined">favorite</span>
-                        <span class="icon material-symbols-outlined">Comment</span>
-                        <span class="icon material-symbols-outlined">share</span>
-                    </div>
+                    <button class="btnFavorite">
+                        <span class="icon material-symbols-outlined favorite" data-like="dislike">favorite</span>
+                    </button>
+                    <button class="btnComment">
+                        <span class="icon material-symbols-outlined comment" data-comment="closed">Comment</span>
+                    </button>
+                    <button class="btnShare">
+                        <span class="icon material-symbols-outlined share" data-share="closed">share</span>
+                    </button>
                 </div>
             </div>
-            <div class="post">
-                <img src="" alt="">
-                <div class="legend">
-                    <p>Legenda</p>
-                    <span class="material-symbols-outlined">
-                        arrow_drop_down
-                    </span>
-                    <span class="material-symbols-outlined">
-                        arrow_drop_up
-                    </span>
-                </div>
-                <div class="interactions">
-                    <div class="reactions">
-                        <span class="icon material-symbols-outlined">favorite</span>
-                        <span class="icon material-symbols-outlined">Comment</span>
-                        <span class="icon material-symbols-outlined">share</span>
-                    </div>
-                </div>
-            </div>
-            <div class="post">
-                <img src="" alt="">
-                <div class="legend">
-                    <p>Legenda</p>
-                    <span class="material-symbols-outlined">
-                        arrow_drop_down
-                    </span>
-                    <span class="material-symbols-outlined">
-                        arrow_drop_up
-                    </span>
-                </div>
-                <div class="interactions">
-                    <div class="reactions">
-                        <span class="icon material-symbols-outlined">favorite</span>
-                        <span class="icon material-symbols-outlined">Comment</span>
-                        <span class="icon material-symbols-outlined">share</span>
-                    </div>
-                </div>
-            </div>
-            <div class="post">
-                <img src="" alt="">
-                <div class="legend">
-                    <p>Legenda</p>
-                    <span class="material-symbols-outlined">
-                        arrow_drop_down
-                    </span>
-                    <span class="material-symbols-outlined">
-                        arrow_drop_up
-                    </span>
-                </div>
-                <div class="interactions">
-                    <div class="reactions">
-                        <span class="icon material-symbols-outlined">favorite</span>
-                        <span class="icon material-symbols-outlined">Comment</span>
-                        <span class="icon material-symbols-outlined">share</span>
-                    </div>
-                </div>
-            </div>
-            <div class="post">
-                <img src="" alt="">
-                <div class="legend">
-                    <p>Legenda</p>
-                    <span class="material-symbols-outlined">
-                        arrow_drop_down
-                    </span>
-                    <span class="material-symbols-outlined">
-                        arrow_drop_up
-                    </span>
-                </div>
-                <div class="interactions">
-                    <div class="reactions">
-                        <span class="icon material-symbols-outlined">favorite</span>
-                        <span class="icon material-symbols-outlined">Comment</span>
-                        <span class="icon material-symbols-outlined">share</span>
-                    </div>
-                </div>
-            </div>
-            <div class="post">
-                <img src="" alt="">
-                <div class="legend">
-                    <p>Legenda</p>
-                    <span class="icon active material-symbols-outlined">
-                        arrow_drop_down
-                    </span>
-                    <span class="icon material-symbols-outlined">
-                        arrow_drop_up
-                    </span>
-                </div>
-                <div class="interactions">
-                    <div class="reactions">
-                        <span class="icon material-symbols-outlined">favorite</span>
-                        <span class="icon material-symbols-outlined">Comment</span>
-                        <span class="icon material-symbols-outlined">share</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <!-- BTN ADD POST -->
         <nav>
             <span class="icon material-symbols-outlined">
                 add_box
@@ -180,10 +122,12 @@
                 </span>
             </div>
             <div class="friends">
-                <div class="friend">
-                    <img src="" alt="">
-                    <h4>Username</h4>
-                </div>
+                <!-- <c:forEach var="" items="${}"> --> <!-- Repeti os items -->
+                    <div class="friend">
+                        <img src="" alt="">
+                        <h4>Username</h4>
+                    </div>
+                <!--  </c:forEach> -->
                 <div class="friend">
                     <img src="" alt="">
                     <h4>Username</h4>
