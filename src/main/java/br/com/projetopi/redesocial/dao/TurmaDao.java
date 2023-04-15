@@ -1,10 +1,14 @@
 package br.com.projetopi.redesocial.dao;
 
 import br.com.projetopi.redesocial.interfaces.Dao;
+import br.com.projetopi.redesocial.model.Conta;
 import br.com.projetopi.redesocial.model.Turma;
 import br.com.projetopi.redesocial.repository.ConnectionFactory;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class TurmaDao implements Dao<Turma> {
@@ -14,7 +18,20 @@ public class TurmaDao implements Dao<Turma> {
         this.conexao = ConnectionFactory.getConnectionH2();
     }
     public void add(Turma turma){
-
+        String sqlQuery = "insert into turma " +
+                "(id_curso, data_inicio, turno, semestre, letra)" +
+                "values (?,?,?,?,?)";
+        try(PreparedStatement ps = conexao.prepareStatement(sqlQuery)){
+            ps.setInt(1, turma.getCurso_id());
+            ps.setDate(2, turma.getData_inicio());
+            ps.setString(3, turma.getTurno());
+            ps.setString(4, turma.getSemestre());
+            ps.setString(5, turma.getLetra());
+            ps.execute();
+            conexao.commit();
+        }catch (SQLException e){
+            System.out.println(e.getMessage());
+        }
     }
     public boolean update(Turma turma){
         return true;
@@ -23,7 +40,27 @@ public class TurmaDao implements Dao<Turma> {
         return true;
     }
     public ArrayList<Turma> findAllPageable(int qtd_elementos, int num_inicio){
-        return null;
+        ArrayList<Turma> turmas = new ArrayList<>();
+
+        String sqlQuery = "SELECT * FROM turma LIMIT ? OFFSET ?;"; //TODO
+        try(PreparedStatement ps = conexao.prepareStatement(sqlQuery)) {
+            ps.setInt(1, qtd_elementos);
+            ps.setInt(2, num_inicio);
+            ResultSet result = ps.executeQuery();
+
+            while(result.next()){
+                Turma turma = new Turma();
+                turma.setCurso_id(result.getInt("id_curso"));
+                turma.setData_inicio(result.getDate("data_inicio"));
+                turma.setLetra(result.getString("letra"));
+                turma.setSemestre(result.getString("semestre"));
+                turmas.add(turma);
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return turmas;
+
     }
 
 }
