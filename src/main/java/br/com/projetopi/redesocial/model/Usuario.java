@@ -3,14 +3,28 @@ package br.com.projetopi.redesocial.model;
 import java.util.Objects;
 
 public class Usuario {
+
+    private int id;
     private String email;
     private String senha;
     private String papel;
+
+    public Usuario(){
+
+    }
 
     public Usuario(String email, String senha, String papel) {
         this.email = email;
         this.senha = senha;
         this.papel = papel;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getEmail() {

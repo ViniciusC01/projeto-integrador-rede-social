@@ -14,4 +14,10 @@ public class UsuarioService {
     public void add(Usuario usuario){
         this.usuarioDao.add(usuario);
     }
+
+    public int getIdByEmail(String email){
+        int id = usuarioDao.getIdByEmail(email);
+        return id;
+    }
+
 }

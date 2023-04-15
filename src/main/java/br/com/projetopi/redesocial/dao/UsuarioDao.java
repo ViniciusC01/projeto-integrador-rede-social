@@ -6,6 +6,7 @@ import br.com.projetopi.redesocial.repository.ConnectionFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class UsuarioDao {
@@ -15,6 +16,25 @@ public class UsuarioDao {
             this.conexao = ConnectionFactory.getConnectionH2();
         }catch (Exception e){
             e.printStackTrace();
+        }
+    }
+
+    public int getIdByEmail(String email) {
+        String sqlQuery = "select * from usuario where email = ?";
+        try(PreparedStatement ps = conexao.prepareStatement(sqlQuery)){
+            ps.setString(1, email);
+            ResultSet result = ps.executeQuery();
+            Usuario usuario = new Usuario();
+            while(result.next()){
+                usuario.setEmail(result.getString("email"));
+                usuario.setPapel(result.getString("papel"));
+                usuario.setSenha(result.getString("senha"));
+                usuario.setId(result.getInt("id"));
+            }
+            return usuario.getId();
+        }catch (Exception e){
+            System.out.println("Erro " + e.getMessage());
+            return 0;
         }
     }
 
