@@ -1,4 +1,4 @@
-package br.com.projetopi.redesocial.controller;
+package br.com.projetopi.redesocial;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -6,15 +6,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+@WebServlet("/login")
+public class HomeServlet extends HttpServlet {
 
-@WebServlet(name = "conta")
-public class ContaServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-    }
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+        req.getRequestDispatcher("login.html").forward(req, resp);
     }
 }

@@ -3,10 +3,12 @@ package br.com.projetopi.redesocial.model;
 import java.sql.Date;
 import java.time.LocalDate;
 
+
 public class Conta {
     private int id;
     private String cpf;
     private String nome;
+    private String genero;
     private Date data_nascimento;
     private String sobre;
     private int usuario_id;
@@ -14,6 +16,31 @@ public class Conta {
     private int curso_id;
     private int foto_id;
     private int turma_id;
+
+    public Conta(){
+
+    }
+
+    public Conta(String cpf, String nome, Date data_nascimento, String sobre, int usuario_id, int instituiacao_id, int curso_id, int foto_id, int turma_id, String genero) {
+        this.cpf = cpf;
+        this.nome = nome;
+        this.data_nascimento = data_nascimento;
+        this.sobre = sobre;
+        this.usuario_id = usuario_id;
+        this.instituiacao_id = instituiacao_id;
+        this.curso_id = curso_id;
+        this.foto_id = foto_id;
+        this.turma_id = turma_id;
+        this.genero = genero;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
 
     public int getId() {
         return id;
@@ -93,5 +120,21 @@ public class Conta {
 
     public void setTurma_id(int turma_id) {
         this.turma_id = turma_id;
+    }
+
+    @Override
+    public String toString() {
+        return "Conta{" +
+                "id=" + id +
+                ", cpf='" + cpf + '\'' +
+                ", nome='" + nome + '\'' +
+                ", data_nascimento=" + data_nascimento +
+                ", sobre='" + sobre + '\'' +
+                ", usuario_id=" + usuario_id +
+                ", instituiacao_id=" + instituiacao_id +
+                ", curso_id=" + curso_id +
+                ", foto_id=" + foto_id +
+                ", turma_id=" + turma_id +
+                '}';
     }
 }
