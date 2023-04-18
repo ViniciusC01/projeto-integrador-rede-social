@@ -14,11 +14,7 @@ public class InstituicaoDao {
     private Connection con;
 
     public InstituicaoDao(){
-        try {
-            this.con = ConnectionFactory.getConnectionH2();
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
+        this.con = ConnectionFactory.getConnectionH2();
     }
     public void add(Instituicao instituicao){
         String sqlQuery = "insert into instituicao (nome) values (?)";

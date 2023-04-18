@@ -173,3 +173,25 @@ function onlynumber(evt) {
 function checkEmail(email) {
     return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
 }
+
+function getInstituicoes(){
+    console.log("funcao chamada")
+    fetch("http://localhost:8080/api_instituicoes")
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+        })
+}
+
+function getCursosByInstituicaoId(id){
+    fetch("http://localhost:8080/api_cursos_by_email?instituicao_id="+id)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+        })
+}
+
+document.querySelector('#instituicao').addEventListener('change', (e) => {
+    id = document.querySelector('#instituicao').value
+    getCursosByInstituicaoId(id)
+})

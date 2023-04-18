@@ -30,6 +30,10 @@ public class Curso {
         this.instituicao_id = instituicao_id;
     }
 
+    public Curso(){
+
+    }
+
     public Integer getId() {
         return id;
     }

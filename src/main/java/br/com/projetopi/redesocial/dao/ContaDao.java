@@ -17,7 +17,7 @@ public class ContaDao {
         }
     }
 
-    public void add(Conta conta) throws SQLException {
+    public void add(Conta conta){
         String sqlQuery = "insert into conta " +
                 "(cpf, nome, data_nascimento, sobre, usuario_id, instituiacao_id, curso_id, foto_id, turma_id)" +
                 "values (?,?,?,?,?,?,?,?,?)";

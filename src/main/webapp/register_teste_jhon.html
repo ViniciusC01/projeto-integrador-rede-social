@@ -10,7 +10,7 @@
 
     <title>CAPIVA</title>
 </head>
-<body>
+<body onload="getInstituicoes()">
     <header class="logo">
         <a href="./login.html">
             <img src="" alt="">
@@ -20,7 +20,7 @@
         <div class="cardRegister">
             <h1>Cadastre-se</h1>
 
-            <form id="form" action="/conta" method="post">
+            <form id="form" action="/conta" method="post" onload="getInstituicoes()">
 
                 <div class="fields field1">
                     <input type="text" name="nome" id="firstName" class="field" placeholder="Nome">
@@ -63,7 +63,7 @@
                 </div>
 
                 <div class="fields field6">
-                    <select name="university" id="university" class="field">
+                    <select name="instituicao" id="instituicao" class="field">
                         <option selected disabled>Universidade</option>
                         <option value="1">SENAC</option>
                     </select>
@@ -73,7 +73,7 @@
                 </div>
                 
                 <div class="fields field7">
-                    <select name="course" id="course" class="field">
+                    <select name="curso" id="curso" class="field">
                         <option selected disabled>Curso</option>
                         <option value="1">Análise e Desenvolvimento de Sistemas</option>
                     </select>
@@ -153,6 +153,6 @@
     <footer>
         <p>&copy; CAPIVA. Todos os direitos reservados.</p>
     </footer>
-    <script src="./js/register.js"></script>
+    <script src="./js/register_teste_jhon.js"></script>
 </body>
 </html>
