@@ -3,9 +3,9 @@ const firstName = document.getElementById("firstName")
 const lastName = document.getElementById("lastName")
 const birth = document.getElementById("birth")
 const gender = document.getElementById("gender")
-const telephone = document.getElementById("telephone")
-const university = document.getElementById("university")
-const course = document.getElementById("course")
+const cpf = document.getElementById("cpf")
+const university = document.getElementById("instituicao")
+const course = document.getElementById("curso")
 const shift = document.getElementById("shift")
 const year = document.getElementById("year")
 const semester = document.getElementById("semester")
@@ -16,11 +16,11 @@ const passwordConfirmation = document.getElementById("passwordConfirmation")
 
 form.addEventListener('submit', (e) => {
 
-   valida = checkInputs();
-
-   if (valida === false){
-    e.preventDefault();
-   }
+    const valida = checkInputs();
+    
+    if (valida === false){
+        e.preventDefault();
+    }
 });
 
 function checkInputs() {
@@ -28,7 +28,7 @@ function checkInputs() {
     const lastNameValue = lastName.value;
     const birthValue = birth.value;
     const genderContent = gender.value;
-    const telephoneValue = telephone.value;
+    const cpfValue = cpf.value;
     const universityValue = university.value;
     const courseValue = course.value;
     const shiftValue = shift.value;
@@ -38,7 +38,6 @@ function checkInputs() {
     const emailValue = email.value;
     const passwordValue = password.value;
     const passwordConfirmationValue = passwordConfirmation.value;
-
     if(firstNameValue === ""){
         setErrorFor(firstName, "O nome é obrigatório.");
     } else {
@@ -54,27 +53,27 @@ function checkInputs() {
     } else {
         setSuccessFor(birth)
     }
-    if(genderContent === ""){
+    if(genderContent === "0"){
         setErrorFor(gender, "O gênero é obrigatório.");
     } else {
         setSuccessFor(gender)
     }
-    if(telephoneValue === ""){
-        setErrorFor(telephone, "O celular é obrigatório.");
+    if(cpfValue === ""){
+        setErrorFor(cpf, "O CPF é obrigatório.");
     } else {
-        setSuccessFor(telephone)
+        setSuccessFor(cpf)
     }
-    if(universityValue === ""){
+    if(universityValue === "0"){
         setErrorFor(university, "A universidade é obrigatória.");
     } else {
         setSuccessFor(university)
     }
-    if(courseValue === ""){
+    if(courseValue === "0"){
         setErrorFor(course, "O curso é obrigatório.");
     } else {
         setSuccessFor(course)
     }
-    if(shiftValue === ""){
+    if(shiftValue === "0"){
         setErrorFor(shift, "O turno é obrigatório.");
     } else {
         setSuccessFor(shift)
@@ -84,12 +83,12 @@ function checkInputs() {
     } else {
         setSuccessFor(year)
     }
-    if(semesterValue === ""){
+    if(semesterValue === "0"){
         setErrorFor(semester, "O semestre é obrigatório.");
     } else {
         setSuccessFor(semester)
     }
-    if(teamValue === ""){
+    if(teamValue === "0"){
         setErrorFor(team, "A turma é obrigatória.");
     } else {
         setSuccessFor(team)
@@ -115,7 +114,7 @@ function checkInputs() {
     } else {
         setSuccessFor(passwordConfirmation);
     }
-    
+
     const formControls = form.querySelectorAll(".fields")
     const formIsValid = [...formControls].every(fields => {
         return (fields.className === "fields success");
@@ -130,29 +129,31 @@ function checkInputs() {
 
 }
 
-function setErrorFor(input, message) {
+
+function setErrorFor(input) {
     const formControl = input.parentElement;
-    const small = formControl.querySelector("small");
-    
-    // Adicionar a mensagem de erro
-    small.innerText = message;
 
     // Adicionar a classe de erro
-    formControl.className = "fields error";
+    formControl.classList.add("error");
+    formControl.classList.remove("success");
 }
 
 function setSuccessFor(input) {
     const formControl = input.parentElement;
 
     // Adicionar a classe de sucesso
-    formControl.className = "fields success";
+    formControl.classList.add("success");
+    formControl.classList.remove("error");
 }
 
 // Mascaras input
 function mask(){
  
-    $( "#telephone" ).keypress(function() {
-       $(this).mask('(00) 0 0000-0000');
+    $( "#cpf" ).keypress(function() {
+       $(this).mask('000.000.000-00');
+    }); 
+    $( "#year" ).keypress(function() {
+       $(this).mask('0000');
     }); 
  
 }
@@ -173,3 +174,25 @@ function onlynumber(evt) {
 function checkEmail(email) {
     return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
 }
+
+function getInstituicoes(){
+    console.log("funcao chamada")
+    fetch("http://localhost:8080/api_instituicoes")
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+        })
+}
+
+function getCursosByInstituicaoId(id){
+    fetch("http://localhost:8080/api_cursos_by_email?instituicao_id="+id)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+        })
+}
+
+document.querySelector('#instituicao').addEventListener('change', (e) => {
+    id = document.querySelector('#instituicao').value
+    getCursosByInstituicaoId(id)
+})

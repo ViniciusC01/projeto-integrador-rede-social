@@ -83,12 +83,11 @@ main header{
     box-shadow: 1px 3px 10px var(--black-mono);
     z-index: 1;
 }
-main header .logo{
+main header .logo > img{
     content: "";
-    width: 2rem;
-    height: 2rem;
+    width: 6rem;
+    height: 6rem;
     margin: 1rem;
-    background: #0005;
 }
 
 main .container{
@@ -217,8 +216,8 @@ aside .profile .user{
 }
 aside .profile .user > img{
     content: "";
-    width: 1.8rem;
-    height: 1.8rem;
+    width: 2rem;
+    height: 2rem;
     border-radius: 0.5rem;
     cursor: pointer;
 }
