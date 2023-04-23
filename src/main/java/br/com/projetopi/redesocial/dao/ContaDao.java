@@ -96,6 +96,7 @@ public class ContaDao {
                 conta.setCpf(result.getString("cpf"));
                 conta.setNome(result.getString("nome"));
                 conta.setData_nascimento(result.getDate("data_nascimento"));
+                conta.setGenero(result.getString("genero"));
                 conta.setSobre(result.getString("sobre"));
                 conta.setUsuario_id(result.getInt("usuario_id"));
                 conta.setInstituiacao_id(result.getInt("instituicao_id"));

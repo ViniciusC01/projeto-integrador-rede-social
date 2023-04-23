@@ -14,11 +14,7 @@ public class FotoDAO extends HttpServlet {
     Connection conexao;
 
     public FotoDAO() {
-        try {
-            conexao = ConnectionFactory.getConnectionH2();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        conexao = ConnectionFactory.getConnectionH2();
     }
 
     public void toadd(Foto foto) {
