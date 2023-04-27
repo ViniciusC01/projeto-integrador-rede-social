@@ -72,9 +72,11 @@ public class ContaDao {
         return true;
     }
     public boolean remove(int id){
-        String sqlQuery = "delete from conta where id == "+id;
-        try(Statement st = conexao.createStatement()){
-            st.execute(sqlQuery);
+        String sqlQuery = "update conta set ic_ativo = ? where id == ?";
+        try(PreparedStatement ps = conexao.prepareStatement(sqlQuery)){
+            ps.setBoolean(1, false);
+            ps.setInt(2, id);
+            ps.execute();
         }catch (SQLException e){
             e.printStackTrace();
         }
@@ -85,10 +87,11 @@ public class ContaDao {
 
         ArrayList<Conta> contas = new ArrayList<>();
 
-        String sqlQuery = "SELECT * FROM conta LIMIT ? OFFSET ?;"; //TODO
+        String sqlQuery = "SELECT * FROM conta LIMIT ? OFFSET ? where ic_conta = ?;"; //TODO
         try(PreparedStatement ps = conexao.prepareStatement(sqlQuery)) {
             ps.setInt(1, qtd_elementos);
             ps.setInt(2, num_inicio);
+            ps.setBoolean(3, true);
             ResultSet result = ps.executeQuery();
 
             while(result.next()){
