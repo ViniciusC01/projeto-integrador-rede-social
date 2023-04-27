@@ -60,7 +60,7 @@ public class DatabaseInitializer implements ServletContextListener {
                 create table conta (
                 id integer primary key auto_increment,
                 cpf varchar (12),
-                ic_ativo boolean,
+                ic_ativo integer,
                 nome varchar (30) not null,
                 data_nascimento date not null,
                 sobre varchar (200),
@@ -113,7 +113,7 @@ public class DatabaseInitializer implements ServletContextListener {
                 INSERT INTO CURSO (ID, NOME, TIPO, AREA, INSTITUICAO_ID) VALUES (1, 'ANALISE E DESENVOLVIMENTO DE SISTEMAS', 'TECNOLOGO', 'TECNOLOGIA DA INFORMACAO', 1);
                 INSERT INTO TURMA (ID, ID_CURSO, DATA_INICIO, SEMESTRE, LETRA, TURNO) VALUES (1, 1, '2022-01-01', 'SEGUNDO', 'D', 'NOTURNO');
                 INSERT INTO USUARIO (ID, EMAIL, SENHA, PAPEL) VALUES (1, 'ALUNO_EXEMPLO@EMAIL.COM', '123', 'ALUNO');
-                INSERT INTO CONTA (ID, CPF,IC_ATIVO, NOME, DATA_NASCIMENTO, SOBRE, USUARIO_ID, INSTITUICAO_ID, CURSO_ID, FOTO_ID, TURMA_ID, GENERO) VALUES (1, '45194845804', TRUE, 'ALUNO EXEMPLO', '1994-04-04', 'APRESENTACAO PESSOAL', 1, 1, 1, 1, 1, 'MASCULINO');    
+                INSERT INTO CONTA (ID, CPF,IC_ATIVO, NOME, DATA_NASCIMENTO, SOBRE, USUARIO_ID, INSTITUICAO_ID, CURSO_ID, FOTO_ID, TURMA_ID, GENERO) VALUES (1, '45194845804', 1, 'ALUNO EXEMPLO', '1994-04-04', 'APRESENTACAO PESSOAL', 1, 1, 1, 1, 1, 'MASCULINO');    
                 """;
     }
 

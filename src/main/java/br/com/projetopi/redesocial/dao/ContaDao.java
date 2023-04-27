@@ -91,7 +91,7 @@ public class ContaDao {
         try(PreparedStatement ps = conexao.prepareStatement(sqlQuery)) {
             ps.setInt(1, qtd_elementos);
             ps.setInt(2, num_inicio);
-            ps.setBoolean(3, true);
+            ps.setInt(3, 1);
             ResultSet result = ps.executeQuery();
 
             while(result.next()){
