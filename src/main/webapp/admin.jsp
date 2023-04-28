@@ -88,9 +88,11 @@
             </span>
             </td>
             <td>
+                <a href="/excluir_conta?id=${conta.id}">
                 <span class="material-icons">
                     delete_forever
                 </span>
+                </a>
             </td>
         </c:forEach>
     </tr>
