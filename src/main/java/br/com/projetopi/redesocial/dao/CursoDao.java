@@ -63,21 +63,26 @@ public class CursoDao {
         }
     }
 
-    public Curso findById(int id) throws SQLException {
+    public Curso findById(int id)  {
         String sql =  "SELECT * FROM curso WHERE id = " + id;
 
-        PreparedStatement statement = connection.prepareStatement(sql);
-        statement.execute();
-
-        try(ResultSet set = statement.getResultSet()){
-            while(set.next()){
-                Instituicao instituicao = new Instituicao();
-                instituicao.setId(set.getInt(5));
-                Curso curso = new Curso(set.getInt(1), set.getString(2), set.getString(3),
-                        set.getString(4), instituicao, instituicao.getId());
-                return curso;
+        try( PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.execute();
+            try(ResultSet set = statement.getResultSet()) {
+                while (set.next()) {
+                    Instituicao instituicao = new Instituicao();
+                    instituicao.setId(set.getInt(5));
+                    Curso curso = new Curso(set.getInt(1), set.getString(2), set.getString(3),
+                            set.getString(4), instituicao, instituicao.getId());
+                    return curso;
+                }
+            }catch (SQLException e){
+                System.out.printf(e.getMessage());
             }
+        }catch (SQLException e){
+            System.out.println(e);
         }
+
         return null;
     }
 

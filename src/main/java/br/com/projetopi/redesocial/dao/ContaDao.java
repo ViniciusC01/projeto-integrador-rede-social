@@ -118,7 +118,7 @@ public class ContaDao {
 
     public Conta findById(int id){
 
-        String sqlQuery = "select * from conta where id == ?";
+        String sqlQuery = "select * from conta where id = ?";
         ResultSet result;
         Conta conta = new Conta();
 
@@ -130,9 +130,10 @@ public class ContaDao {
                 conta.setCpf(result.getString("cpf"));
                 conta.setNome(result.getString("nome"));
                 conta.setData_nascimento(result.getDate("data_nascimento"));
+                conta.setGenero(result.getString("genero"));
                 conta.setSobre(result.getString("sobre"));
                 conta.setUsuario_id(result.getInt("usuario_id"));
-                conta.setInstituiacao_id(result.getInt("instituiacao_id"));
+                conta.setInstituiacao_id(result.getInt("instituicao_id"));
                 conta.setCurso_id(result.getInt("curso_id"));
                 conta.setFoto_id(result.getInt("foto_id"));
                 conta.setTurma_id(result.getInt("turma_id"));

@@ -37,4 +37,8 @@ public class TurmaService implements Service<Turma> {
     public Turma findTurmaByDataIdCursoSemestre(Date data_inicio, int id_curso, String semestre){
         return this.turmaDao.findTurmaByDataIdCursoSemestre(data_inicio, id_curso, semestre);
     }
+
+    public Turma getById(int id){
+        return this.turmaDao.findById(id);
+    }
 }

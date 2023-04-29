@@ -2,6 +2,8 @@ package br.com.projetopi.redesocial.dao;
 
 import br.com.projetopi.redesocial.interfaces.Dao;
 import br.com.projetopi.redesocial.model.Conta;
+import br.com.projetopi.redesocial.model.Curso;
+import br.com.projetopi.redesocial.model.Instituicao;
 import br.com.projetopi.redesocial.model.Turma;
 import br.com.projetopi.redesocial.repository.ConnectionFactory;
 
@@ -78,7 +80,34 @@ public class TurmaDao implements Dao<Turma> {
             e.printStackTrace();
         }
         return turma;
+    }
 
+    public Turma findById(int id){
+        String sql =  "SELECT * FROM turma WHERE id = " + id;
+
+        try( PreparedStatement statement = conexao.prepareStatement(sql)) {
+            statement.execute();
+            try(ResultSet set = statement.getResultSet()) {
+                while (set.next()) {
+                    Turma turma = new Turma();
+
+                    turma.setId(set.getInt("id"));
+                    turma.setCurso_id(set.getInt("id_curso"));
+                    turma.setTurno(set.getString("turno"));
+                    turma.setLetra(set.getString("letra"));
+                    turma.setSemestre(set.getString("semestre"));
+                    turma.setData_inicio(set.getDate("data_inicio"));
+
+                    return turma;
+                }
+            }catch (SQLException e){
+                System.out.printf(e.getMessage());
+            }
+        }catch (SQLException e){
+            System.out.println(e);
+        }
+
+        return null;
     }
 
 }
