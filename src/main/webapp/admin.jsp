@@ -84,7 +84,7 @@
 
             </td>
             <td>
-            <span class="material-icons" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <span class="material-icons" data-bs-toggle="modal" data-bs-target="#exampleModal" data-id="${conta.id}" id="editar">
                 edit
             </span>
             </td>

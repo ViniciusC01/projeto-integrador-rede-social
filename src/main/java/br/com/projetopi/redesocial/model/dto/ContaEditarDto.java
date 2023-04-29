@@ -1,5 +1,9 @@
 package br.com.projetopi.redesocial.model.dto;
 
+import br.com.projetopi.redesocial.model.Curso;
+import br.com.projetopi.redesocial.model.Instituicao;
+import br.com.projetopi.redesocial.model.Turma;
+
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.Locale;
@@ -9,14 +13,27 @@ public class ContaEditarDto {
     private String nome;
     private Date nascimento;
     private String genero;
-    private String instituicao;
-    private String curso;
-    private String turma;
+    private Instituicao instituicao;
+    private Curso curso;
+    private Turma turma;
 
     public ContaEditarDto() {
     }
 
-    public ContaEditarDto(String cpf, String nome, Date nascimento, String genero, String instituicao, String curso, String turma) {
+    @Override
+    public String toString() {
+        return "ContaEditarDto{" +
+                "cpf='" + cpf + '\'' +
+                ", nome='" + nome + '\'' +
+                ", nascimento=" + nascimento +
+                ", genero='" + genero + '\'' +
+                ", instituicao=" + instituicao +
+                ", curso=" + curso +
+                ", turma=" + turma +
+                '}';
+    }
+
+    public ContaEditarDto(String cpf, String nome, Date nascimento, String genero, Instituicao instituicao, Curso curso, Turma turma) {
         this.cpf = cpf;
         this.nome = nome;
         this.nascimento = nascimento;
@@ -58,27 +75,27 @@ public class ContaEditarDto {
         this.genero = genero;
     }
 
-    public String getInstituicao() {
+    public Instituicao getInstituicao() {
         return instituicao;
     }
 
-    public void setInstituicao(String instituicao) {
+    public void setInstituicao(Instituicao instituicao) {
         this.instituicao = instituicao;
     }
 
-    public String getCurso() {
+    public Curso getCurso() {
         return curso;
     }
 
-    public void setCurso(String curso) {
+    public void setCurso(Curso curso) {
         this.curso = curso;
     }
 
-    public String getTurma() {
+    public Turma getTurma() {
         return turma;
     }
 
-    public void setTurma(String turma) {
+    public void setTurma(Turma turma) {
         this.turma = turma;
     }
 }

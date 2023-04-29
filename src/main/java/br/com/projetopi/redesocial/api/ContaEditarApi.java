@@ -47,10 +47,12 @@ public class ContaEditarApi extends HttpServlet {
                 conta.getNome(),
                 conta.getData_nascimento(),
                 conta.getGenero(),
-                instituicao.getNome(),
-                curso.getNome(),
-                turma.getLetra()
+                null,
+                null,
+                null
         );
+
+        System.out.println(contaEditarDto);
 
         String json = ApiUtils.ObjectToJsonString(contaEditarDto);
         resp.setContentType("application/json");

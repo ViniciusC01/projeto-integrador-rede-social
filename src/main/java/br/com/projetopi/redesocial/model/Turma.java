@@ -73,4 +73,16 @@ public class Turma {
     public int hashCode() {
         return Objects.hash(curso_id, data_inicio, turno, semestre, letra);
     }
+
+    @Override
+    public String toString() {
+        return "Turma{" +
+                "id=" + id +
+                ", curso_id=" + curso_id +
+                ", data_inicio=" + data_inicio +
+                ", turno='" + turno + '\'' +
+                ", semestre='" + semestre + '\'' +
+                ", letra='" + letra + '\'' +
+                '}';
+    }
 }
