@@ -8,8 +8,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Optional;
 
-public class FotoDAO extends HttpServlet {
+public class FotoDAO{
 
     Connection conexao;
 
@@ -18,31 +19,30 @@ public class FotoDAO extends HttpServlet {
     }
 
     public void toadd(Foto foto) {
-        String save = "insert into foto (id, cd_foto) values (?,?)";
-        try (PreparedStatement statement = conexao.prepareStatement(save)) {
+        String INSERT = "insert into foto (cd_foto) values (?)";
+        try (PreparedStatement statement = conexao.prepareStatement(INSERT)) {
 
             try {
-                statement.setInt(1, foto.getId());
-                statement.setBytes(2, foto.getCd_foto());
+//                statement.setInt(1, foto.getId());
+                statement.setBytes(1, foto.getCd_foto());
                 statement.execute();
             } catch (SQLException e) {
-                throw new RuntimeException(e);
+                e.printStackTrace();
             }
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
     }
 
     public boolean remove(Foto foto) {
-        String sql = "DELETE FROM foto WHERE id =?";
-        try (PreparedStatement stmt = conexao.prepareStatement(sql)) {
+        String DELETE = "DELETE FROM foto WHERE id =?";
+        try (PreparedStatement stmt = conexao.prepareStatement(DELETE)) {
             stmt.setInt(1, foto.getId());
             stmt.execute();
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
         }
-
         return true;
     }
 
@@ -59,30 +59,24 @@ public class FotoDAO extends HttpServlet {
         return true;
     }
 
-    public String consultaPorId(int id) {
+    public Optional<Foto> findById(int id) {
         String select = "SELECT * FROM foto WHERE id =?";
         StringBuilder sb = new StringBuilder();
         ResultSet resultado;
-        String s = null;
-        Foto ft = new Foto();
 
         try (PreparedStatement stmt = conexao.prepareStatement(select)) {
             stmt.setInt(1, id);
             resultado = stmt.executeQuery();
 
-            resultado.next();
-            ft.setId(resultado.getInt("id"));
-//            ft.setCd_foto(resultado.getLong("cd_foto"));
-
-            s = String.valueOf(resultado.getInt("id"));
-//                        + String.valueOf(resultado.getBigDecimal("cd_foto")));
-
-            return s;
+            if (resultado.next()) {
+                return Optional.of(new Foto(resultado.getInt("id"),
+                        resultado.getBytes("cd_foto")));
+            }
         } catch (SQLException e) {
             e.printStackTrace();
+            return Optional.empty();
         }
-        System.out.println(s);
-        return s;
+        return Optional.empty();
     }
 
 
