@@ -47,9 +47,9 @@ public class ContaEditarApi extends HttpServlet {
                 conta.getNome(),
                 conta.getData_nascimento(),
                 conta.getGenero(),
-                null,
-                null,
-                null
+                instituicao,
+                curso,
+                turma
         );
 
         System.out.println(contaEditarDto);

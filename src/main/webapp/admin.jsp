@@ -135,9 +135,8 @@
         <div class="row mt-3">
             <div class="col-4">
                 <label for="f_genero" class="form-label"> Genero </label>
-                <select class="form-select" aria-label="Default select example">
+                <select class="form-select" aria-label="Default select example" id="f_genero">
                   <option selected>  </option>
-                  <option value="1">One</option>
                 </select>
             </div>
 
@@ -145,7 +144,6 @@
                 <label for="f_instituicoes" class="form-label"> Instituicao </label>
                 <select class="form-select" aria-label="Default select example" id="f_instituicoes">
                   <option selected>  </option>
-                  <option value="1">One</option>
                 </select>
             </div>
         </div>
@@ -154,19 +152,38 @@
             <div class="col-4">
                 <label for="f_curso" class="form-label"> Curso </label>
                 <select class="form-select" aria-label="Default select example" id="f_curso">
-                  <option selected>  </option>
-                  <option value="1">One</option>
                 </select>
             </div>
 
             <div class="col-4">
-                <label for="f_turma" class="form-label"> Turma </label>
-                <select class="form-select" aria-label="Default select example" id="f_turma">
-                  <option selected>  </option>
-                  <option value="1">One</option>
+                <label for="f_ano_inicio" class="form-label"> Ano inicio </label>
+                <select class="form-select" aria-label="Default select example" id="f_ano_inicio">
+
                 </select>
             </div>
+
+            <div class="col-4">
+                <label for="f_semestre" class="form-label"> Semestre  </label>
+                <select class="form-select" aria-label="Default select example" id="f_semestre">
+                </select>
+            </div>
+
         </div>
+
+      <div class="row mt-3">
+          <div class="col-4">
+              <label for="f_turno" class="form-label"> Turno </label>
+              <select class="form-select" aria-label="Default select example" id="f_turno">
+              </select>
+          </div>
+
+          <div class="col-4">
+              <label for="f_turma" class="form-label"> Turma </label>
+              <select class="form-select" aria-label="Default select example" id="f_turma">
+              </select>
+          </div>
+
+      </div>
 
 
       </div>

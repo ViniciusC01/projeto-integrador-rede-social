@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
-@WebServlet("/api_cursos_by_email")
+@WebServlet("/api_cursos")
 public class CursoApi extends HttpServlet {
     private CursoService cursoService;
 
