@@ -26,14 +26,19 @@ document.getElementById("editar").addEventListener('click', function(e) {
     fetch("http://localhost:8080/api_conta_editar?id="+id)
         .then(response => response.json())
         .then(values => {
+
             dados = values
-            meusDados = dados
+
             const cpf = document.getElementById("f_cpf")
             const nome = document.getElementById("f_nome")
             const curso = document.getElementById("f_curso")
             const genero = document.getElementById("f_genero")
             const nascimento = document.getElementById("f_nascimento")
             const instituicao = document.getElementById("f_instituicoes")
+            const ano_inicio = document.getElementById("f_ano_inicio")// todo
+            const turno = document.getElementById("f_turno")// todo
+            const semestre = document.getElementById("f_semestre")// todo
+            const turma = document.getElementById("f_turma") // todo
 
             instituicao.innerHTML = ''
             curso.innerHTML = ''
@@ -83,16 +88,17 @@ document.getElementById("editar").addEventListener('click', function(e) {
                         })
                     })
                     console.log(cursos)
+            }).then(()=>{
+                let index = curso.options[0].value
             })
 
-
+            let data_inicio = dados['turma'].data_inicio
+            let data_ano_inicio = new Date(parseInt(data_inicio)).getFullYear()
 
 
 
     })
-
 });
-
 
 document.getElementById("f_instituicoes").addEventListener('change', e => {
     instituicao_id = e.target.getAttribute('value')
