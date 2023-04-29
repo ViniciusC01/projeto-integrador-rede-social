@@ -221,9 +221,10 @@ aside .profile .user > img{
     border-radius: 0.5rem;
     cursor: pointer;
 }
-aside .profile .config > .icon{
+aside .profile .config .icon{
     font-size: 1rem;
     cursor: pointer;
+    color: var(--white);
 }
 
 aside .container{
