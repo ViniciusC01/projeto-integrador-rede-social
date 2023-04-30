@@ -11,14 +11,17 @@ public class Conta {
     private String genero;
     private Date data_nascimento;
     private String sobre;
+
+    private boolean ic_ativo;
     private int usuario_id;
     private int instituiacao_id;
     private int curso_id;
     private int foto_id;
     private int turma_id;
 
-    public Conta(){
 
+    public Conta(){
+        this.ic_ativo = true;
     }
 
     public Conta(String cpf, String nome, Date data_nascimento, String sobre, int usuario_id, int instituiacao_id, int curso_id, int foto_id, int turma_id, String genero) {
@@ -32,6 +35,7 @@ public class Conta {
         this.foto_id = foto_id;
         this.turma_id = turma_id;
         this.genero = genero;
+        this.ic_ativo = true;
     }
 
     public String getGenero() {

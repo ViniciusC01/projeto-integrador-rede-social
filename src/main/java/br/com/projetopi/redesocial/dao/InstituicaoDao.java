@@ -65,7 +65,7 @@ public class InstituicaoDao {
         ResultSet result;
         Instituicao instituicao = new Instituicao();
 
-        String sqlQuery = "select * from conta where id == ?";
+        String sqlQuery = "select * from instituicao where id = ?";
         try(PreparedStatement ps = con.prepareStatement(sqlQuery)){
             ps.setInt(1, id);
             result = ps.executeQuery();

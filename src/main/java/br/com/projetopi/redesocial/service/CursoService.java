@@ -16,4 +16,8 @@ public class CursoService {
         return cursoDao.getCursosByInstituicaoId(instituicaoId);
     }
 
+    public Curso getCursoById(int id){
+        return cursoDao.findById(id);
+    }
+
 }

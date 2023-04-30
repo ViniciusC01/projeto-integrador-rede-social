@@ -1,0 +1,22 @@
+.side-nav{
+    height: 100vh;
+    padding: 0px;
+}
+
+.container-menu{
+    width: 250px;
+}
+
+.menu{
+    height: 100%;
+}
+
+.menu-item{
+    box-shadow: 0 0 1px #888;
+    border-bottom: gray solid 1px;
+
+}
+
+.menu-item a{
+    color: gray;
+}

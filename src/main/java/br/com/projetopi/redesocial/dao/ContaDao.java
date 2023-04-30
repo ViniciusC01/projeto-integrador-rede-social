@@ -72,9 +72,11 @@ public class ContaDao {
         return true;
     }
     public boolean remove(int id){
-        String sqlQuery = "delete from conta where id == "+id;
-        try(Statement st = conexao.createStatement()){
-            st.execute(sqlQuery);
+        String sqlQuery = "update conta set ic_ativo = ? where id = ?";
+        try(PreparedStatement ps = conexao.prepareStatement(sqlQuery)){
+            ps.setInt(1, 0);
+            ps.setInt(2, id);
+            ps.execute();
         }catch (SQLException e){
             e.printStackTrace();
         }
@@ -85,10 +87,12 @@ public class ContaDao {
 
         ArrayList<Conta> contas = new ArrayList<>();
 
-        String sqlQuery = "SELECT * FROM conta LIMIT ? OFFSET ?;"; //TODO
+        String sqlQuery = "SELECT * FROM conta where ic_ativo = ?  LIMIT ? OFFSET ?;"; //TODO
         try(PreparedStatement ps = conexao.prepareStatement(sqlQuery)) {
-            ps.setInt(1, qtd_elementos);
-            ps.setInt(2, num_inicio);
+            ps.setInt(1, 1);
+            ps.setInt(2, qtd_elementos);
+            ps.setInt(3, num_inicio);
+
             ResultSet result = ps.executeQuery();
 
             while(result.next()){
@@ -96,12 +100,14 @@ public class ContaDao {
                 conta.setCpf(result.getString("cpf"));
                 conta.setNome(result.getString("nome"));
                 conta.setData_nascimento(result.getDate("data_nascimento"));
+                conta.setGenero(result.getString("genero"));
                 conta.setSobre(result.getString("sobre"));
                 conta.setUsuario_id(result.getInt("usuario_id"));
                 conta.setInstituiacao_id(result.getInt("instituicao_id"));
                 conta.setCurso_id(result.getInt("curso_id"));
                 conta.setFoto_id(result.getInt("foto_id"));
                 conta.setTurma_id(result.getInt("turma_id"));
+                conta.setId(result.getInt("id"));
                 contas.add(conta);
             }
         }catch (SQLException e){
@@ -112,7 +118,7 @@ public class ContaDao {
 
     public Conta findById(int id){
 
-        String sqlQuery = "select * from conta where id == ?";
+        String sqlQuery = "select * from conta where id = ?";
         ResultSet result;
         Conta conta = new Conta();
 
@@ -124,9 +130,10 @@ public class ContaDao {
                 conta.setCpf(result.getString("cpf"));
                 conta.setNome(result.getString("nome"));
                 conta.setData_nascimento(result.getDate("data_nascimento"));
+                conta.setGenero(result.getString("genero"));
                 conta.setSobre(result.getString("sobre"));
                 conta.setUsuario_id(result.getInt("usuario_id"));
-                conta.setInstituiacao_id(result.getInt("instituiacao_id"));
+                conta.setInstituiacao_id(result.getInt("instituicao_id"));
                 conta.setCurso_id(result.getInt("curso_id"));
                 conta.setFoto_id(result.getInt("foto_id"));
                 conta.setTurma_id(result.getInt("turma_id"));

@@ -1,17 +1,25 @@
 package br.com.projetopi.redesocial.controller.conta.view_controller;
 
+import br.com.projetopi.redesocial.service.ContaService;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/conta_cadastro")
-public class CadastroContaServlet  extends HttpServlet {
+public class ExcluirContaServlet extends HttpServlet {
+
+    private ContaService contaService;
+
+    ExcluirContaServlet(){
+        this.contaService = new ContaService();
+    }
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("register.html").forward(req,resp);
+
+        int id = Integer.valueOf(req.getParameter("id"));
+        this.contaService.remove(id);
     }
 }

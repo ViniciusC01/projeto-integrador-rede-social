@@ -13,6 +13,18 @@ public class Curso {
     private Instituicao instituicao;
     private Integer instituicao_id;
 
+    @Override
+    public String toString() {
+        return "Curso{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", tipo='" + tipo + '\'' +
+                ", area='" + area + '\'' +
+                ", instituicao=" + instituicao +
+                ", instituicao_id=" + instituicao_id +
+                '}';
+    }
+
     public Curso(String nome, String tipo, String area, Instituicao instituicao, Integer instituicao_id) {
         this.nome = nome;
         this.tipo = tipo;
@@ -95,14 +107,4 @@ public class Curso {
         return Objects.hash(id);
     }
 
-    @Override
-    public String toString() {
-        return "Curso{" +
-                "id=" + id +
-                ", nome='" + nome + '\'' +
-                ", tipo='" + tipo + '\'' +
-                ", area='" + area + '\'' +
-                ", instituicao_id=" + instituicao_id +
-                '}';
-    }
 }

@@ -2,6 +2,8 @@ package br.com.projetopi.redesocial.dao;
 
 import br.com.projetopi.redesocial.interfaces.Dao;
 import br.com.projetopi.redesocial.model.Conta;
+import br.com.projetopi.redesocial.model.Curso;
+import br.com.projetopi.redesocial.model.Instituicao;
 import br.com.projetopi.redesocial.model.Turma;
 import br.com.projetopi.redesocial.repository.ConnectionFactory;
 
@@ -58,13 +60,14 @@ public class TurmaDao implements Dao<Turma> {
         }
         return turmas;
     }
-    public Turma findTurmaByDataIdCursoSemestre(Date data_inicio, int id_curso, String semestre){
-        String sqlQuery = "select * from turma where year(?) = 2022 and id_curso = ? and semestre = ?";
+    public Turma findTurmaByDataIdCursoSemestre(int ano_inicio, int id_curso, String semestre, String turno){
+        String sqlQuery = "select * from turma where year(data_inicio) = ? and id_curso = ? and semestre = upper(?) and turno = upper(?)";
         Turma turma = new Turma();
         try(PreparedStatement ps = conexao.prepareStatement(sqlQuery)) {
-            ps.setDate(1, data_inicio);
+            ps.setInt(1, ano_inicio);
             ps.setInt(2, id_curso);
             ps.setString(3, semestre);
+            ps.setString(4, turno);
             ResultSet result = ps.executeQuery();
             while(result.next()){
                 turma.setCurso_id(result.getInt("id_curso"));
@@ -78,7 +81,34 @@ public class TurmaDao implements Dao<Turma> {
             e.printStackTrace();
         }
         return turma;
+    }
 
+    public Turma findById(int id){
+        String sql =  "SELECT * FROM turma WHERE id = " + id;
+
+        try( PreparedStatement statement = conexao.prepareStatement(sql)) {
+            statement.execute();
+            try(ResultSet set = statement.getResultSet()) {
+                while (set.next()) {
+                    Turma turma = new Turma();
+
+                    turma.setId(set.getInt("id"));
+                    turma.setCurso_id(set.getInt("id_curso"));
+                    turma.setTurno(set.getString("turno"));
+                    turma.setLetra(set.getString("letra"));
+                    turma.setSemestre(set.getString("semestre"));
+                    turma.setData_inicio(set.getDate("data_inicio"));
+
+                    return turma;
+                }
+            }catch (SQLException e){
+                System.out.printf(e.getMessage());
+            }
+        }catch (SQLException e){
+            System.out.println(e);
+        }
+
+        return null;
     }
 
 }
