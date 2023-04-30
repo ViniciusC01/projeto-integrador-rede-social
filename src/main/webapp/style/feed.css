@@ -254,8 +254,6 @@ aside .container .search > input{
     box-shadow: var(--box-shadow);
     --webkit-backdrop-filter: blur(15px);
     box-shadow: inset 1px 1px 5px var(--black-mono), inset -1px -1px 5px var(--black-mono);
-
-
 }
 aside .container .search > span{
     position: absolute;

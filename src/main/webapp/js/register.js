@@ -16,11 +16,11 @@ const passwordConfirmation = document.getElementById("passwordConfirmation")
 
 form.addEventListener('submit', (e) => {
 
-    // const valida = checkInputs();
-    //
-    // if (valida === false){
-    //     e.preventDefault();
-    // }
+    const valida = checkInputs();
+    
+    if (valida === false){
+        e.preventDefault();
+    }
 });
 
 function checkInputs() {
@@ -117,18 +117,18 @@ function checkInputs() {
 
     const formControls = form.querySelectorAll(".fields")
     const formIsValid = [...formControls].every(fields => {
-        return (fields.className === "fields success");
+        return (fields.classList.contains("success"));
     });
 
     // Validação do submit
+
+    console.log(formIsValid)
     if (formIsValid) {
         return true;
     } else {
         return false;
     }
-
 }
-
 
 function setErrorFor(input) {
     const formControl = input.parentElement;
@@ -148,14 +148,12 @@ function setSuccessFor(input) {
 
 // Mascaras input
 function mask(){
- 
     $( "#cpf" ).keypress(function() {
        $(this).mask('000.000.000-00');
     }); 
     $( "#year" ).keypress(function() {
        $(this).mask('0000');
     }); 
- 
 }
 
 // Aceitar somente números
@@ -186,6 +184,14 @@ function getInstituicoes(){
 
 function getCursosByInstituicaoId(id){
     fetch("http://localhost:8080/api_cursos_by_email?instituicao_id="+id)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+        })
+}
+
+function getTurmaByCursoId(id){
+    fetch("http://localhost:8080/api_turma_specific?data_inicio=2022&semestre=SEGUNDO&id_curso=1&turno=noturno")
         .then(response => response.json())
         .then(data => {
             console.log(data)
