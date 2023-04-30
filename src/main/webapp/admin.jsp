@@ -70,8 +70,8 @@
         </tr>
     </thead>
     <tbody>
+    <c:forEach items="${contas}" var="conta">
     <tr>
-        <c:forEach items="${contas}" var="conta">
             <td>${conta.cpf }</td>
             <td>${conta.nome }</td>
             <td>${conta.data_nascimento }</td>
@@ -84,7 +84,7 @@
 
             </td>
             <td>
-            <span class="material-icons" data-bs-toggle="modal" data-bs-target="#exampleModal" data-id="${conta.id}" id="editar">
+            <span class="material-icons editar" data-bs-toggle="modal" data-bs-target="#exampleModal" data-id="${conta.id}">
                 edit
             </span>
             </td>
@@ -95,8 +95,8 @@
                 </span>
                 </a>
             </td>
-        </c:forEach>
     </tr>
+    </c:forEach>
     </tbody>
 </table>
 </div>

@@ -16,11 +16,11 @@ const passwordConfirmation = document.getElementById("passwordConfirmation")
 
 form.addEventListener('submit', (e) => {
 
-    const valida = checkInputs();
-    
-    if (valida === false){
-        e.preventDefault();
-    }
+    // const valida = checkInputs();
+    //
+    // if (valida === false){
+    //     e.preventDefault();
+    // }
 });
 
 function checkInputs() {

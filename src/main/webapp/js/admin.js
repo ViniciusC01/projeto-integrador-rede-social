@@ -19,15 +19,17 @@ function getCursos(id){
 }
 
 
-document.getElementById("editar").addEventListener('click', function(e) {
+document.querySelectorAll(".editar").addEventListener('click', function(e) {
     id = e.target.getAttribute('data-id')
+    console.log(id)
     var dados
-    var meusDados
     fetch("http://localhost:8080/api_conta_editar?id="+id)
         .then(response => response.json())
         .then(values => {
 
             dados = values
+
+            console.log(dados)
 
             const cpf = document.getElementById("f_cpf")
             const nome = document.getElementById("f_nome")
@@ -49,6 +51,7 @@ document.getElementById("editar").addEventListener('click', function(e) {
 
             const data = new Date(parseInt(dados['nascimento']))
             nascimento.value = (data.toISOString().slice(0,10))
+            console.log(nascimento)
 
             // carregar genero
 
@@ -92,8 +95,8 @@ document.getElementById("editar").addEventListener('click', function(e) {
                 let index = curso.options[0].value
             })
 
-            let data_inicio = dados['turma'].data_inicio
-            let data_ano_inicio = new Date(parseInt(data_inicio)).getFullYear()
+            // let data_inicio = dados['turma'].data_inicio
+            // let data_ano_inicio = new Date(parseInt(data_inicio)).getFullYear()
 
 
 
