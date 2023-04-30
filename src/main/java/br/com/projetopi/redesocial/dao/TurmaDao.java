@@ -60,13 +60,14 @@ public class TurmaDao implements Dao<Turma> {
         }
         return turmas;
     }
-    public Turma findTurmaByDataIdCursoSemestre(Date data_inicio, int id_curso, String semestre){
-        String sqlQuery = "select * from turma where year(?) = 2022 and id_curso = ? and semestre = ?";
+    public Turma findTurmaByDataIdCursoSemestre(int ano_inicio, int id_curso, String semestre, String turno){
+        String sqlQuery = "select * from turma where year(data_inicio) = ? and id_curso = ? and semestre = upper(?) and turno = upper(?)";
         Turma turma = new Turma();
         try(PreparedStatement ps = conexao.prepareStatement(sqlQuery)) {
-            ps.setDate(1, data_inicio);
+            ps.setInt(1, ano_inicio);
             ps.setInt(2, id_curso);
             ps.setString(3, semestre);
+            ps.setString(4, turno);
             ResultSet result = ps.executeQuery();
             while(result.next()){
                 turma.setCurso_id(result.getInt("id_curso"));

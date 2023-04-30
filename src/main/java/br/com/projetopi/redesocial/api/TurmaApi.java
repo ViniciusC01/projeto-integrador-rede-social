@@ -27,11 +27,12 @@ public class TurmaApi extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        Date data = Date.valueOf(req.getParameter("data_inicio"));
+        int ano_inicio = Integer.valueOf(req.getParameter("ano_inicio"));
         String semestre = req.getParameter("semestre");
+        String turno = req.getParameter("turno");
         int id = Integer.valueOf(req.getParameter("id_curso"));
 
-        Turma turma = this.turmaService.findTurmaByDataIdCursoSemestre(data, id, semestre);
+        Turma turma = this.turmaService.findTurmaByDataIdCursoSemestre(ano_inicio, id, semestre, turno);
         String json = ApiUtils.ObjectToJsonString(turma);
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");
