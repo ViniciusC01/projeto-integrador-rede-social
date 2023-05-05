@@ -35,4 +35,13 @@ public class Instituicao {
     public int hashCode() {
         return Objects.hash(id, nome);
     }
+
+    @Override
+    public String toString() {
+        return "Instituicao{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                '}';
+    }
 }
+

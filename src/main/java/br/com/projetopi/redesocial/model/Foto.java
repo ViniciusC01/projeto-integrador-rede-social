@@ -4,6 +4,12 @@ public class Foto {
     private int id;
     private byte[] cd_foto;
 
+    public Foto(int id, byte[] cd_fotos) {
+    }
+
+    public Foto(byte[] dados) {
+    }
+
     public int getId() {
         return id;
     }

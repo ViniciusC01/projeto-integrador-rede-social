@@ -221,9 +221,10 @@ aside .profile .user > img{
     border-radius: 0.5rem;
     cursor: pointer;
 }
-aside .profile .config > .icon{
+aside .profile .config .icon{
     font-size: 1rem;
     cursor: pointer;
+    color: var(--white);
 }
 
 aside .container{
@@ -253,8 +254,6 @@ aside .container .search > input{
     box-shadow: var(--box-shadow);
     --webkit-backdrop-filter: blur(15px);
     box-shadow: inset 1px 1px 5px var(--black-mono), inset -1px -1px 5px var(--black-mono);
-
-
 }
 aside .container .search > span{
     position: absolute;
